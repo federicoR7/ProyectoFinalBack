@@ -1,7 +1,11 @@
-# Gestión de Hechizos
+# Agenda de turnos 
 
-Este proyecto es una aplicación web para la gestión de hechizos, desarrollada utilizando React para el frontend y Node.js con Express para el backend. La aplicación permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre hechizos, utilizando MongoDB como base de datos.
-
+Este proyecto es una aplicación web para poder realizar reservas web en un salón de belleza.
+En esta app se utiliza:
+    -React para el frontend, también se utilizaron librerías de bootstrap para dar una mejor apariencia a la página.
+    -Node.js y Express para el backend. La aplicación permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) con los turnos.
+    -MongoDB como base de datos.
+    
 ## Tecnologías Utilizadas
 
 - **Frontend**: React, React Router, CSS
