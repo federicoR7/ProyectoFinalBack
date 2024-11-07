@@ -1,0 +1,39 @@
+
+.containerTablaForm{
+    display: grid;
+    justify-content: end;
+}
+.fila{
+    border: rgba(185, 185, 185, 0.726) solid 1px;
+    border-left: none;
+    border-right: none;
+    
+
+}
+.container{
+    background-color: rgb(233, 223, 225);
+    
+}
+.containerTabla{
+    width: 95%;
+    height: 70%;
+    
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    
+}
+
+.tabla{
+    width: 95%;
+    
+}
+
+
+.table-success{
+    background-color: rgb(136, 136, 136);
+}
+
+.cerrado{
+    text-align: center;
+}

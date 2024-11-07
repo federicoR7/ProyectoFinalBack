@@ -1,0 +1,23 @@
+.cajaContenedoraNosotros{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    background-color: white;
+    width: 50%;
+    
+    border-radius: 4px;
+    
+}
+.textoNosotros{
+    text-align: center;
+    background-color: rgb(233, 223, 225);
+    width: 97.5%;
+    height: 95%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
+
+}

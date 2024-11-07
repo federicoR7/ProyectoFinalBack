@@ -1,0 +1,21 @@
+.cajaPadreMaps {
+    width: 50%;
+    display: grid;
+    justify-content: center;
+    height: 30%;
+    
+ 
+}
+
+
+
+.contenedorSection {
+width: 100%;
+    background-color: white;
+
+}
+.mapaGoogleIndex{
+    width: 100%;
+}
+
+

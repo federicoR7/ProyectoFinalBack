@@ -1,0 +1,58 @@
+.cajaContenedoraContac {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    width: 50%;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.cajaSecundariaCont {
+    text-align: center;
+    background-color: rgb(233, 223, 225);
+    width: 97.5%;
+    height: 95%;
+    display: grid;
+    align-items: center;
+    align-content: center;
+}
+
+.cajaLogosCont {
+    display: flex;
+   
+}
+
+.whatsappImgCont {
+    width: 50%;
+    margin-top: 2.5rem;
+}
+
+.whatsappImgCont:hover {
+    scale: 1.2;
+}
+
+.instagramImgUbi {
+    width: 50%;
+    margin-top: 2rem;
+}
+
+.instagramImgUbi:hover {
+    scale: 1.2;
+}
+
+.wppImgContacto {
+    width: 40%;
+}
+
+.igImgContacto {
+    width: 35%;
+    margin-top: 1rem;
+}
+
+.wppImgContacto:hover {
+    scale: 1.2;
+}
+
+.igImgContacto:hover {
+    scale: 1.2;
+}

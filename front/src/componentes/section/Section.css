@@ -1,0 +1,120 @@
+.cajaAcordeon {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+@media(max-width: 900px){
+    .cajaAcordeon{
+        width: 100%;
+    }
+}
+
+.subCajaAcordeon{
+    width: 95%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: large;
+}
+
+.accordion {
+    width: 95%;
+
+
+
+}
+
+.accordion-button {
+    background: linear-gradient(90deg, rgb(233, 223, 225)60%, white);
+    font-size: large;
+
+
+}
+
+.botonAcordeon {
+    margin-bottom: 1.5rem;
+}
+
+.contenedorCartas {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.card{
+    width: 30%;
+}
+
+@media(max-width: 768px){
+    .contenedorCartas{
+        
+        flex-direction: column;
+        align-items: center
+
+    }
+    .card{
+        width: 95%;
+        margin-top: 2rem;
+    }
+}
+
+.tituloBoton {
+    font-size: large;
+}
+
+.cajaTitulo {
+    width: 95%;
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between
+}
+
+.agendar {
+    width: 60%;
+    font-size: small;
+}
+
+.contenedorTarjeta {
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+.offcanvas{
+    background-color: rgb(206, 199, 199);
+}
+
+.offcanvasTitle{
+    font-size: 3rem;
+}
+.revisar{
+    font-size: large;
+    margin-bottom: 3rem;
+}
+.listaServicios{
+    font-size: large;
+    list-style:none;
+    font-weight:500;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+}
+.botonAgendar{
+    margin-top:2rem;
+}
+.botonAgendar:hover{
+    background-color: #198754;
+    scale: 1.1;
+}
+.eliminar:hover{
+    scale:1.2
+}
+
+

@@ -1,0 +1,99 @@
+
+.formulario{  
+     width: 50%;  
+
+   display: flex;
+   justify-content: center;
+}
+
+@media(max-width: 900px){
+    .lineaDatos1{
+        flex-direction: column;
+    }
+       
+
+    }
+
+.cajaAfuera{
+    background-color: white;
+    
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+.calendario{
+    display: grid;
+}
+#fecha{
+    background-color: #6c757d;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 3px;
+    
+}
+
+.lineaDatos1{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    width: 95%;
+    
+    
+}
+.cajaInputs{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+}
+
+.cajaHorarios{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dia{
+    background-color: #6c757d;
+    color: white;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    
+    background-color: #a3a5a7; 
+    font-size: large;
+    border-radius: 5px;
+
+}
+.cajaInferior{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin-bottom: 1rem
+
+}
+
+.cajaBotonAgendar{
+    display: grid;
+    margin-top: 1%;
+   
+    width: 33%;
+
+}
+.tituloFormulario{
+    margin-left: 2.5%;
+    margin-bottom: 3%;
+    
+}
+
+.subCajaInferior{
+    width: 33%;
+    margin-top: 2rem;
+}
+
+.horas{
+    font-size: medium;
+}
