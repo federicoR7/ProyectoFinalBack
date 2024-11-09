@@ -4,7 +4,6 @@ const cors = require('cors');
 const session = require('express-session'); 
 const turnosRoutes = require('./routes/turnoRoutes');
 const userRoutes = require('./routes/userRoutes');
-
 require('dotenv').config(); 
 const app = express();
 
