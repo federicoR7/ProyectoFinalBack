@@ -26,58 +26,124 @@ const FormularioServicios = () => {
     horario: '',
   });
 
+
   useEffect(() => {
     const serviciosGuardados = localStorage.getItem('serviciosSeleccionados');
     if (serviciosGuardados) {
-      const servicios = JSON.parse(serviciosGuardados);
-      if (servicios.length > 0) {
-        setServiciosSeleccionados(servicios);
-        setFormData((prevFormData) => ({
-          ...prevFormData,
-          servicio: servicios.map(servicio => servicio.nombre),
-        }));
+      try {
+        const servicios = JSON.parse(serviciosGuardados);
+        if (Array.isArray(servicios) && servicios.length > 0) {
+          setServiciosSeleccionados(servicios);
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            servicio: servicios.map(servicio => servicio.nombre),
+          }));
+        }
+      } catch (error) {
+        console.error('Error al parsear servicios desde localStorage:', error);
       }
     }
   }, []);
+  
+
+
+  //  const handleSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   const form = event.currentTarget;
+  //   // Verificar que haya servicios seleccionados antes de enviar el formulario
+
+  //     if (serviciosSeleccionados.length === 0) {
+  //       setMensaje('Debes seleccionar al menos un servicio');
+  //       return;
+  //     } else {
+  //       setFormData((prevFormData) => ({
+  //         ...prevFormData,
+  //         servicio: serviciosSeleccionados.map((servicio) => servicio.nombre),
+  //       }));
+  //     }
+      
+
+  //   if (form.checkValidity() === false || horarioInvalido) {
+  //     event.stopPropagation();
+  //   } else {
+  //     try {
+  //       const nuevoTurno = {
+  //         servicio: serviciosSeleccionados.map((servicio) => servicio.nombre), // Confirmar servicios
+  //         dia: formData.dia,
+  //         horario: formData.horario,
+  //       };
+  //       await axios.post('http://localhost:5000/api/turnos', nuevoTurno);
+  //       setMensaje('El turno se agendó correctamente. Gracias por confiar en nosotros!');
+  //       setReservaHecha(true); // Cambia el estado para deshabilitar el botón y mostrar el de volver
+  //       console.log('Formulario enviado:', formData);
+  //       navigate('/turnos');
+  //     } catch (error) {
+  //       console.error('Error al agendar el turno:', error);
+  //     }
+
+  //   }
+
+  //   setValidated(true);
+
+  //   if (horarioSeleccionado === 'Elegir un horario') {
+  //     setHorarioInvalido(true); // Marca el horario como inválido si no se selecciono
+  //   } else {
+  //     setHorarioInvalido(false); // Marca el horario como válido si se selecciono
+  //   }
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     const form = event.currentTarget;
-    // Verificar que haya servicios seleccionados antes de enviar el formulario
-    if (formData.servicio.length === 0) {
+  
+    if (serviciosSeleccionados.length === 0) {
       setMensaje('Debes seleccionar al menos un servicio');
       return;
     }
-
+  
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      servicio: serviciosSeleccionados.map((servicio) => servicio.nombre),
+    }));
+  
+    // Asegurar que se convierta `horario` si es necesario
+    const horarioNumerico = parseInt(horarioSeleccionado.replace(/\D/g, ''));
+  
     if (form.checkValidity() === false || horarioInvalido) {
       event.stopPropagation();
     } else {
       try {
         const nuevoTurno = {
-          servicio: formData.servicio,
+          servicio: serviciosSeleccionados.map((servicio) => servicio.nombre),
           dia: formData.dia,
-          horario: formData.horario,
+          horario: horarioNumerico,
         };
+  
         await axios.post('http://localhost:5000/api/turnos', nuevoTurno);
         setMensaje('El turno se agendó correctamente. Gracias por confiar en nosotros!');
-        setReservaHecha(true); // Cambia el estado para deshabilitar el botón y mostrar el de volver
-        console.log('Formulario enviado:', formData);
+        setReservaHecha(true);
+        console.log('Formulario enviado:', nuevoTurno);
         navigate('/turnos');
       } catch (error) {
         console.error('Error al agendar el turno:', error);
       }
-
     }
-
+  
     setValidated(true);
-
+  
     if (horarioSeleccionado === 'Elegir un horario') {
-      setHorarioInvalido(true); // Marca el horario como inválido si no se selecciono
+      setHorarioInvalido(true);
     } else {
-      setHorarioInvalido(false); // Marca el horario como válido si se selecciono
+      setHorarioInvalido(false);
     }
   };
+  
+
+
+
+
 
   const handleSelect = (eventKey) => {
     setHorarioSeleccionado(eventKey);
@@ -93,30 +159,26 @@ const FormularioServicios = () => {
   };
 
 
+  
+  useEffect(() => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      servicio: serviciosSeleccionados.map((servicio) => servicio.nombre),
+    }));
+  }, [serviciosSeleccionados]);
+  
+
+
 
   // // Asegúrate de que los servicios seleccionados se guarden en formData
-  // useEffect(() => {
-  //   setFormData({ ...formData, servicios: serviciosSeleccionados });
-  // }, [serviciosSeleccionados]);
+   useEffect(() => {
+     setFormData({ ...formData, servicios: serviciosSeleccionados });
+   }, [serviciosSeleccionados]);
 
   const handleVolverInicio = () => {
     navigate('/'); // Redirige al inicio
   };
 
-
-
-
-
-  /*const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const nuevoHechizo = { nombre, descripcion, nivel };
-      await axios.post('http://localhost:5000/api/turnos', nuevoTurno);
-      navigate('/turnos');
-    } catch (error) {
-      console.error('Error al crear el hechizo:', error);
-    }
-  };*/
 
 
   return (
@@ -231,7 +293,7 @@ const FormularioServicios = () => {
 
         </Form.Group>
         <div className='cajaBotonAgendar'>
-          {<Button variant="secondary" size="lg" type="submit">Reservar!</Button>}
+          {/* {<Button variant="secondary" size="lg" type="submit">Reservar!</Button>} */}
           {!reservaHecha ? (
             <Button className='botonAgendar' variant="secondary" size="lg" type="submit" disabled={reservaHecha}>
               Reservar!
@@ -255,6 +317,9 @@ const FormularioServicios = () => {
 };
 
 export default FormularioServicios;
+
+
+
 
 
 

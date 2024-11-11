@@ -12,10 +12,17 @@ import Contacto from './componentes/contacto/Contacto';
 import React, { useRef } from 'react';
 import ServicioSelector from './componentes/section/Section';
 
+import Register from './componentes/api/Register';
+import Login from './componentes/api/Login';
+import { AuthProvider } from './componentes/api/AuthContext';
+import Protegida from './componentes/protegida/Protegida';
+import ProtectedRoute from './componentes/api/ProtectedRoute';
+
 
 
 function App() {
   return (
+    <AuthProvider>
     <Router>
       <section className='body'>
         <Header />
@@ -32,6 +39,10 @@ function App() {
             <Route path='/Nosotros' element={<Nosotros />} />
             <Route path='/Contacto' element={<Contacto />} />
 
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path="/protegida" element={<ProtectedRoute element={<Protegida />} />} />
+
           </Routes>   
           <div className='cajaHorarioMapa'>     
         <GoogleMaps />
@@ -41,6 +52,7 @@ function App() {
         <Footer />
       </section>
     </Router>
+    </AuthProvider>
   )
 }
 
