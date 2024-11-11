@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 // Rutas para registrar un nuevo usurio
 
 router.post("/register", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, nombre, apellido, email, celular } = req.body;
   try {
     const existingUser = await User.findOne({ username });
     if (existingUser) {
@@ -14,7 +14,7 @@ router.post("/register", async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ username, password: hashedPassword });
+    const newUser = new User({ username, password: hashedPassword, nombre, apellido, email, celular });
 
     await newUser.save();
     //console.log("Usuario registrado: ", newUser);

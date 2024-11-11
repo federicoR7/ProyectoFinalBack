@@ -4,11 +4,15 @@ import api from './api';
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [nombre, setNombre] = useState('');
+  const [apellido, setApellido] = useState('');
+  const [email, setEmail] = useState('');
+  const [celular, setCelular] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.post('/users/register', { username, password });
+      await api.post('/users/register', { username, password, nombre, apellido, email, celular });
       alert('Usuario registrado con éxito');
     } catch (error) {
       alert('Error al registrar: ' + error.response.data);
@@ -30,6 +34,34 @@ const Register = () => {
         placeholder="Contraseña"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        required
+      />
+       <input
+        type="text"
+        placeholder="Nombre"
+        value={nombre}
+        onChange={(e) => setNombre(e.target.value)}
+        required
+      />
+        <input
+        type="text"
+        placeholder="Apellido"
+        value={apellido}
+        onChange={(e) => setApellido(e.target.value)}
+        required
+      />
+        <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+        <input
+        type="number"
+        placeholder="Celular"
+        value={celular}
+        onChange={(e) => setCelular(e.target.value)}
         required
       />
       <button type="submit">Registrar</button>

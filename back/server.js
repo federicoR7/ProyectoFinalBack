@@ -22,7 +22,7 @@ app.use(session({
 
 // Rutas
 app.use('/api/turnos', turnosRoutes);
-app.use('/api/usuarios', userRoutes);
+app.use('/api/users', userRoutes);
 
 
 // Conexión a la base de datos

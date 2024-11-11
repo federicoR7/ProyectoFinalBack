@@ -15,7 +15,7 @@ import ServicioSelector from './componentes/section/Section';
 import Register from './componentes/api/Register';
 import Login from './componentes/api/Login';
 import { AuthProvider } from './componentes/api/AuthContext';
-import Protegida from './componentes/protegida/Protegida';
+// import Protegida from './componentes/protegida/Protegida';
 import ProtectedRoute from './componentes/api/ProtectedRoute';
 
 
@@ -35,13 +35,13 @@ function App() {
           <Route path="/servicio/:tipo" element={<ServicioSelector />} />
           
            <Route  path="/" element={<ServicioSelector />} />
-            <Route path='/Reservas' element={<Formulario />} />
+            {/* <Route path='/Reservas' element={<Formulario />} /> */}
             <Route path='/Nosotros' element={<Nosotros />} />
             <Route path='/Contacto' element={<Contacto />} />
 
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path="/protegida" element={<ProtectedRoute element={<Protegida />} />} />
+            <Route path="/Reservas" element={<ProtectedRoute element={<Formulario />} />} />
 
           </Routes>   
           <div className='cajaHorarioMapa'>     

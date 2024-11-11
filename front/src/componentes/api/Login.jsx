@@ -15,7 +15,7 @@ const Login = () => {
     try {
       await api.post('/users/login', { username, password });
       login(); // Llama a login después de un inicio de sesión exitoso
-      navigate('/protegida'); // Redirige a la ruta protegida
+       navigate('/'); // Redirige a la ruta protegida
     } catch (error) {
       alert('Error en el inicio de sesión: ' + error.response.data);
     }
