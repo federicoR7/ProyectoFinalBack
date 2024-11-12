@@ -115,10 +115,14 @@ const FormularioServicios = () => {
       event.stopPropagation();
     } else {
       try {
+
+        const nombreUsuario = localStorage.getItem('username'); // O ajusta esto según tu contexto de autenticación
+
         const nuevoTurno = {
           servicio: serviciosSeleccionados.map((servicio) => servicio.nombre),
           dia: formData.dia,
           horario: horarioNumerico,
+          cliente: nombreUsuario  // Cambia 'usuario' a 'cliente' para que coincida con el modelo
         };
   
         await axios.post('http://localhost:5000/api/turnos', nuevoTurno);
