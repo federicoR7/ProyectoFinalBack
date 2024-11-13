@@ -34,7 +34,7 @@ exports.createTurno = async (req, res) => {
     servicio: req.body.servicio,
     dia: req.body.dia,
     horario: req.body.horario,
-    cliente: req.body.cliente,
+    username: req.body.username,
   });
   
   try {

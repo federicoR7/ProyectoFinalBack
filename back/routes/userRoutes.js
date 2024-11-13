@@ -40,8 +40,13 @@ router.post('/login', async (req, res) => {
       return res.status(401).send('Contraseña incorrecta');
     }
 
-    req.session.user = user.username; // Almacena el nombre de usuario en la sesión
-    res.send(`Usuario ${user.username} ha iniciado sesión.`);
+    req.session.user = user._id; // Almacena el nombre de usuario en la sesión
+    // res.send(`Usuario ${user.username} ha iniciado sesión.`);
+    console.log(`Usuario ${user.username} ha iniciado sesión.`);
+    res.status(200).send({ 
+      message: "Login successful", 
+      userID: user._id, 
+      username: user.username});
   } catch (err) {
     console.error(err);
     res.status(500).send('Error en el servidor');

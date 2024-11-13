@@ -8,9 +8,10 @@ export const AuthProvider = ({ children }) => {
     return localStorage.getItem('isAuthenticated') === 'true';
   });
 
-  const login = () => {
+  const login = (username) => {
     setIsAuthenticated(true);
     localStorage.setItem('isAuthenticated', 'true'); // Guardar en localStorage
+    localStorage.setItem('username', username);
   };
 
   const logout = () => {

@@ -60,10 +60,15 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.post('/users/login', { username, password });
-      login(); // Llama a login después de un inicio de sesión exitoso
+      const response = await api.post('/users/login', { username, password });
+      console.log(response.data);
 
-      // Verificar si hay una ruta a la que redirigir después del inicio de sesión
+      login(username); // Llama a login después de un inicio de sesión exitoso
+    
+      localStorage.setItem('username', response);
+
+      //Verificar si hay una ruta a la que redirigir después del inicio de sesión
+
       const redirectPath = sessionStorage.getItem('redirectAfterLogin');
 
       if (redirectPath) {

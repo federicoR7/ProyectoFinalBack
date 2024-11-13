@@ -116,13 +116,13 @@ const FormularioServicios = () => {
     } else {
       try {
 
-        const nombreUsuario = localStorage.getItem('username'); // O ajusta esto según tu contexto de autenticación
-
+       
+        const nombreUsuario = localStorage.getItem('username');
         const nuevoTurno = {
           servicio: serviciosSeleccionados.map((servicio) => servicio.nombre),
           dia: formData.dia,
           horario: horarioNumerico,
-          cliente: nombreUsuario  // Cambia 'usuario' a 'cliente' para que coincida con el modelo
+           username: nombreUsuario,
         };
   
         await axios.post('http://localhost:5000/api/turnos', nuevoTurno);
@@ -194,51 +194,7 @@ const FormularioServicios = () => {
 
         <Row className="mb-3 lineaDatos1">
           <div className='cajaInputs'>
-            {/* <Form.Group as={Col}  controlId="formNombre">
-              <Form.Label>Nombre</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                placeholder="Ingrese su nombre"
-                size='lg'
-                value={formData.nombre}
-                onChange={(e) => setNombre(e.target.value)}
-                name="nombre"
-                id="nombre"
-              />
-              <Form.Control.Feedback>¡Se ve bien!</Form.Control.Feedback>
-            </Form.Group> 
-            <Form.Group as={Col}  controlId="formApellido">
-              <Form.Label>Apellido</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                placeholder="Ingrese su apellido"
-                size='lg'
-                value={formData.apellido}
-                onChange={(e) => setApellido(e.target.value)}
-                name="apellido"
-                id="apellido"
-              />
-              <Form.Control.Feedback>¡Se ve bien!</Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group as={Col}  controlId="formEmail">
-              <Form.Label>Email</Form.Label>
-              <InputGroup hasValidation>
-                <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                <Form.Control
-                required
-                type="email"
-                placeholder="Ingrese su email"
-                size='lg'
-                value={formData.email}
-                onChange={(e) => setEmail(e.target.value)}
-                name="email"
-                id="email"
-                />
-                <Form.Control.Feedback>¡Se ve bien!</Form.Control.Feedback>
-              </InputGroup>
-            </Form.Group>*/}
+
           </div>
           <Row className="mb-3 cajaHorarios">
 
