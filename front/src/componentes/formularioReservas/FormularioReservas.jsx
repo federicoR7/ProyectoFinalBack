@@ -117,7 +117,12 @@ const FormularioServicios = () => {
       try {
 
        
-        const nombreUsuario = localStorage.getItem('username');
+        const nombreUsuario = localStorage.getItem('username'); // Si está almacenado como objeto
+
+        
+
+        console.log('Nombre de usuario:', nombreUsuario);
+
         const nuevoTurno = {
           servicio: serviciosSeleccionados.map((servicio) => servicio.nombre),
           dia: formData.dia,

@@ -62,10 +62,11 @@ const Login = () => {
     try {
       const response = await api.post('/users/login', { username, password });
       console.log(response.data);
+      
 
       login(username); // Llama a login después de un inicio de sesión exitoso
     
-      localStorage.setItem('username', response);
+      localStorage.setItem('username', String(username));
 
       //Verificar si hay una ruta a la que redirigir después del inicio de sesión
 
