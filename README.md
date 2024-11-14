@@ -56,7 +56,7 @@ En esta app se utiliza:
 
 ## Funcionalidades
 
-- **Lista de Hechizos**: Visualiza todos los hechizos disponibles.
+- **Lista de Turnos**: Visualiza todos los turnos disponibles.
 - **Detalles del Hechizo**: Consulta los detalles de un hechizo específico.
 - **Crear Hechizo**: Añade un nuevo hechizo a la base de datos.
 - **Editar Hechizo**: Modifica los detalles de un hechizo existente.

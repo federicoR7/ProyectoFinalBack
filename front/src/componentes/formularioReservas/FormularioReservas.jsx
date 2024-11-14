@@ -44,92 +44,37 @@ const FormularioServicios = () => {
       }
     }
   }, []);
-  
 
-
-  //  const handleSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   const form = event.currentTarget;
-  //   // Verificar que haya servicios seleccionados antes de enviar el formulario
-
-  //     if (serviciosSeleccionados.length === 0) {
-  //       setMensaje('Debes seleccionar al menos un servicio');
-  //       return;
-  //     } else {
-  //       setFormData((prevFormData) => ({
-  //         ...prevFormData,
-  //         servicio: serviciosSeleccionados.map((servicio) => servicio.nombre),
-  //       }));
-  //     }
-      
-
-  //   if (form.checkValidity() === false || horarioInvalido) {
-  //     event.stopPropagation();
-  //   } else {
-  //     try {
-  //       const nuevoTurno = {
-  //         servicio: serviciosSeleccionados.map((servicio) => servicio.nombre), // Confirmar servicios
-  //         dia: formData.dia,
-  //         horario: formData.horario,
-  //       };
-  //       await axios.post('http://localhost:5000/api/turnos', nuevoTurno);
-  //       setMensaje('El turno se agendó correctamente. Gracias por confiar en nosotros!');
-  //       setReservaHecha(true); // Cambia el estado para deshabilitar el botón y mostrar el de volver
-  //       console.log('Formulario enviado:', formData);
-  //       navigate('/turnos');
-  //     } catch (error) {
-  //       console.error('Error al agendar el turno:', error);
-  //     }
-
-  //   }
-
-  //   setValidated(true);
-
-  //   if (horarioSeleccionado === 'Elegir un horario') {
-  //     setHorarioInvalido(true); // Marca el horario como inválido si no se selecciono
-  //   } else {
-  //     setHorarioInvalido(false); // Marca el horario como válido si se selecciono
-  //   }
-  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     const form = event.currentTarget;
-  
+
     if (serviciosSeleccionados.length === 0) {
       setMensaje('Debes seleccionar al menos un servicio');
       return;
     }
-  
+
     setFormData((prevFormData) => ({
       ...prevFormData,
       servicio: serviciosSeleccionados.map((servicio) => servicio.nombre),
     }));
-  
-    // Asegurar que se convierta `horario` si es necesario
-    const horarioNumerico = parseInt(horarioSeleccionado.replace(/\D/g, ''));
-  
+
     if (form.checkValidity() === false || horarioInvalido) {
       event.stopPropagation();
     } else {
       try {
-
-       
         const nombreUsuario = localStorage.getItem('username'); // Si está almacenado como objeto
-
-        
-
         console.log('Nombre de usuario:', nombreUsuario);
 
         const nuevoTurno = {
           servicio: serviciosSeleccionados.map((servicio) => servicio.nombre),
           dia: formData.dia,
-          horario: horarioNumerico,
-           username: nombreUsuario,
+          horario: horarioSeleccionado,
+          username: nombreUsuario,
         };
-  
+
         await axios.post('http://localhost:5000/api/turnos', nuevoTurno);
         setMensaje('El turno se agendó correctamente. Gracias por confiar en nosotros!');
         setReservaHecha(true);
@@ -139,16 +84,16 @@ const FormularioServicios = () => {
         console.error('Error al agendar el turno:', error);
       }
     }
-  
+
     setValidated(true);
-  
+
     if (horarioSeleccionado === 'Elegir un horario') {
       setHorarioInvalido(true);
     } else {
       setHorarioInvalido(false);
     }
   };
-  
+
 
 
 
@@ -168,21 +113,21 @@ const FormularioServicios = () => {
   };
 
 
-  
+
   useEffect(() => {
     setFormData((prevFormData) => ({
       ...prevFormData,
       servicio: serviciosSeleccionados.map((servicio) => servicio.nombre),
     }));
   }, [serviciosSeleccionados]);
-  
+
 
 
 
   // // Asegúrate de que los servicios seleccionados se guarden en formData
-   useEffect(() => {
-     setFormData({ ...formData, servicios: serviciosSeleccionados });
-   }, [serviciosSeleccionados]);
+  useEffect(() => {
+    setFormData({ ...formData, servicios: serviciosSeleccionados });
+  }, [serviciosSeleccionados]);
 
   const handleVolverInicio = () => {
     navigate('/'); // Redirige al inicio
