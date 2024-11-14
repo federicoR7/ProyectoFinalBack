@@ -80,6 +80,7 @@ const Login = () => {
         // Si no hay ruta almacenada, redirigir al inicio
         navigate('/');
       }
+      
     } catch (error) {
       alert('Error en el inicio de sesión: ' + error.response?.data || error.message);
     }

@@ -55,20 +55,21 @@ En esta app se utiliza:
     npm start
 
 ## Funcionalidades
+- **Registro/LogIn**: la pagina cuenta con logeo de usuario para poder realizar la reserva con sus datos.
+- **Listas de servicios desplegable**: ofrece una visualización simple pero eficaz de los diferentes tipos de servicios que ofrece la empresa/negocio.
+- **Agendar Turno**: Mediante un logeo previo, el usuario puede agendar un turno completando un formulario(los servicios se cargan automaticamente cuando los elije desde el abanico de servicios).
+- **Lista de Turnos**: Visualiza todos los turnos que el usuario reservó.
+- **Editar Turno**: El usuario tiene la posibilidad de modificar su turno una vez reservado.
+- **Eliminar Turno**: Elimina el turno de la base de datos.
 
-- **Lista de Turnos**: Visualiza todos los turnos disponibles.
-- **Detalles del Hechizo**: Consulta los detalles de un hechizo específico.
-- **Crear Hechizo**: Añade un nuevo hechizo a la base de datos.
-- **Editar Hechizo**: Modifica los detalles de un hechizo existente.
-- **Eliminar Hechizo**: Elimina un hechizo de la base de datos.
 
 ## Endpoints del API
 
-- `GET /api/hechizos` - Obtiene todos los hechizos.
-- `GET /api/hechizos/:id` - Obtiene un hechizo por ID.
-- `POST /api/hechizos` - Crea un nuevo hechizo.
-- `PUT /api/hechizos/:id` - Actualiza un hechizo por ID.
-- `DELETE /api/hechizos/:id` - Elimina un hechizo por ID.
+- `GET /api/turnos` - Obtiene todos los turnos.
+- `GET /api/turnos/:id` - Obtiene un turno por ID.
+- `POST /api/turnos` - Crea un nuevo turno.
+- `PUT /api/turnos/:id` - Actualiza un turno por ID.
+- `DELETE /api/turnos/:id` - Elimina un turno por ID.
 
 
 
@@ -76,6 +77,11 @@ En esta app se utiliza:
 - se logro organizar los archivos para poder poner el back y el front juntos, de momento anda todo pero no estan relacionadas amabs partes, necesito revisar el back y ver que partes me sirve y que no.
 - hay que rehacer el formulario para que funcionbe con la base de datos
 - hay que comprobrar que funcione bien la base de datos, que la info llegue y venga correctamente 
-- en cuanto a la base de datos, hay que vincular la coleccionde usuarios y turnos
+
+//actualización 14/11/24
+- se avanzó significativa copn la puesta a punto. se logró conectar el front con el back y el back con la base de datos, la información de usuario y de los turnos llega correctamente a la base de datos. de momento solo se puede, registrar usuario, logear, cerrar sesión y reservar. falta implementar una lista para que el usuario pueda ver todos sus turnos, los pueda editar y eliminar.
+
+- necesito que la aplicación pueda mandarle un mail al usuario con su turno agendado
+- falta render 
 
 

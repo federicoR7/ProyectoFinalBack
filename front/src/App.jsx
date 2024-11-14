@@ -9,7 +9,7 @@ import Carrousel from './componentes/carrousel/Carrousel';
 import Formulario from './componentes/formularioReservas/FormularioReservas';
 import Nosotros from './componentes/nosotros/Nosotros';
 import Contacto from './componentes/contacto/Contacto';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import ServicioSelector from './componentes/section/Section';
 
 import Register from './componentes/api/Register';
@@ -20,7 +20,14 @@ import ProtectedRoute from './componentes/api/ProtectedRoute';
 
 
 
+
+
 function App() {
+
+
+localStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar la aplicación
+
+
   return (
     <AuthProvider>
     <Router>
@@ -41,7 +48,7 @@ function App() {
 
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path="/Reservas" element={<ProtectedRoute element={<Formulario />} />} />
+            <Route path="/Reservas" element={<ProtectedRoute children={<Formulario />} />} />
 
           </Routes>   
           <div className='cajaHorarioMapa'>     
