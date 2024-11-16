@@ -58,8 +58,8 @@ const Header=() =>{
             
 
             <Nav.Link className='opciones'><Link to="/Nosotros" className='nosotros'> Nosotros</Link></Nav.Link>
-
             <Nav.Link className='opciones' ><Link to="/Contacto" className='nosotros'> Contacto</Link> </Nav.Link>
+            <Nav.Link className='opciones' ><Link to="/ListaTurnos" className='nosotros'> Mis Turnos</Link> </Nav.Link>
             <Nav.Link className='opciones' ><Link to="/Register" className='nosotros'>Registrarse</Link> </Nav.Link>
             <Nav.Link className='opciones' ><Link to="/Login" className='nosotros'>Iniciar Sesion</Link> </Nav.Link>
             <Nav.Link className='opciones'><button onClick={handleLogout}>Cerrar sesion</button></Nav.Link>

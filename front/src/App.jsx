@@ -11,7 +11,7 @@ import Nosotros from './componentes/nosotros/Nosotros';
 import Contacto from './componentes/contacto/Contacto';
 import React, { useRef, useEffect } from 'react';
 import ServicioSelector from './componentes/section/Section';
-
+import ListaTurnos from './componentes/listaTurnos/listaTurnos';
 import Register from './componentes/api/Register';
 import Login from './componentes/api/Login';
 import { AuthProvider } from './componentes/api/AuthContext';
@@ -42,10 +42,10 @@ localStorage.removeItem('username'); // Limpia cualquier usuario guardado al ini
           <Route path="/servicio/:tipo" element={<ServicioSelector />} />
           
            <Route  path="/" element={<ServicioSelector />} />
-            {/* <Route path='/Reservas' element={<Formulario />} /> */}
+
             <Route path='/Nosotros' element={<Nosotros />} />
             <Route path='/Contacto' element={<Contacto />} />
-
+            <Route path='/ListaTurnos' element={<ProtectedRoute children={<ListaTurnos />} />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path="/Reservas" element={<ProtectedRoute children={<Formulario />} />} />
