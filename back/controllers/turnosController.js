@@ -3,18 +3,28 @@ const Turno = require('../models/TurnosModel');
 
 // Obtener todos los turnos
 exports.getTurnos = async (req, res) => {
+  const username = req.query.username;
+  if (!username) {
+    return res.status(400).json({ message: 'El nombre de usuario es obligatorio' });
+  }
+
   try {
-    const turnos = await Turno.find();
+    // const turnos = await Turno.find();
+
+        // Filtrar los turnos por el username del usuario logueado
+        const turnos = await Turno.find({ username });
     res.json(turnos);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
 
-// Obtener un turno por ID
+//Obtener un turno por ID
 exports.getTurnoById = async (req, res) => {
+
   try {
     const turno = await Turno.findById(req.params.id);
+
     if (turno) {
       res.json(turno);
     } else {
@@ -23,7 +33,7 @@ exports.getTurnoById = async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
-};
+}; 
 
 
 // Crear un nuevo turno
@@ -36,7 +46,7 @@ exports.createTurno = async (req, res) => {
     horario: req.body.horario,
     username: req.body.username,
   });
-  
+
   try {
     const nuevoTurno = await turno.save();
     res.status(201).json(nuevoTurno);
@@ -50,12 +60,12 @@ exports.updateTurno = async (req, res) => {
   try {
     const turno = await Turno.findById(req.params.id);
     if (turno) {
-      
+
       turno.servicio = req.body.servicio || turno.servicio;
       turno.dia = req.body.dia || turno.dia;
       turno.horario = req.body.horario || turno.horario;
       turno.cliente = req.body.cliente || turno.cliente;
-      
+
       const turnoActualizado = await turno.save();
       res.json(turnoActualizado);
     } else {

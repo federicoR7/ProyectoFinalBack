@@ -8,7 +8,13 @@ const ListaTurnos = () => {
   useEffect(() => {
     const fetchTurnos = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/turnos');
+
+        const username = localStorage.getItem('username'); // Obtener el username del usuario logueado
+        console.log('Username obtenido:', username);
+
+        // const response = await axios.get('http://localhost:5000/api/turnos');
+        const response = await axios.get(`http://localhost:5000/api/turnos?username=${username}`);  
+
         setTurnos(response.data);
       } catch (error) {
         console.error('Error al obtener los turnos:', error);
