@@ -84,4 +84,14 @@ En esta app se utiliza:
 - necesito que la aplicación pueda mandarle un mail al usuario con su turno agendado
 - falta render 
 
+// actualización 18/11/24
+- Se creó una lista en la que el usuario puede ver todos sus turnos, puede editar el dia y horario del mismo, pero no modificar los servicios por cuestiones de organización del salón. 
+
+- falta render
+- falta mail automatico al usuario y local
+- falta correcciones de css 
+- agregar boton de logeo/deslogeo
+- agregar indicador de nombre de usuraio para hacer saber al usuario que esta conectado 
+
+
 

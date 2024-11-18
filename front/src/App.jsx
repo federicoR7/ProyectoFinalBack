@@ -6,7 +6,7 @@ import Footer from './componentes/footer/Footer';
 import GoogleMaps from './componentes/googleMaps/GoogleMaps';
 import Horarios from './componentes/horarios/Horarios';
 import Carrousel from './componentes/carrousel/Carrousel';
-import Formulario from './componentes/formularioReservas/FormularioReservas';
+import FormularioServicios from './componentes/formularioReservas/FormularioReservas';
 import Nosotros from './componentes/nosotros/Nosotros';
 import Contacto from './componentes/contacto/Contacto';
 import React, { useRef, useEffect } from 'react';
@@ -17,6 +17,8 @@ import Login from './componentes/api/Login';
 import { AuthProvider } from './componentes/api/AuthContext';
 // import Protegida from './componentes/protegida/Protegida';
 import ProtectedRoute from './componentes/api/ProtectedRoute';
+import DetalleTurno from './componentes/listaTurnos/DetalleTurno';
+import EditarTurno from './componentes/listaTurnos/editarTurno';
 
 
 
@@ -48,7 +50,12 @@ localStorage.removeItem('username'); // Limpia cualquier usuario guardado al ini
             <Route path='/ListaTurnos' element={<ProtectedRoute children={<ListaTurnos />} />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path="/Reservas" element={<ProtectedRoute children={<Formulario />} />} />
+            <Route path="/Reservas" element={<ProtectedRoute children={<FormularioServicios />} />} />
+            <Route path="/DetalleTurno/:id" element={<ProtectedRoute children={<DetalleTurno />} />} />
+            <Route path="/EditarTurno/:id" element={<ProtectedRoute children={<EditarTurno />} />} />
+           
+
+
 
           </Routes>   
           <div className='cajaHorarioMapa'>     

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ListaTurnos = () => {
   const [turnos, setTurnos] = useState([]);
+ 
 
   useEffect(() => {
     const fetchTurnos = async () => {
@@ -35,7 +36,7 @@ const ListaTurnos = () => {
           <li key={turno._id}>
             {turno.servicio} - {turno.dia} - {turno.horario}
             {' - '}
-            <Link to={`/turnos/${turno._id}`}>Ver Detalle</Link>
+            <Link to={`/DetalleTurno/${turno._id}`}>Ver Detalle</Link>
           </li>
         ))}
       </ul>

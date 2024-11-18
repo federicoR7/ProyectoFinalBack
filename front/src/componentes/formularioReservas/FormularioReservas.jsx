@@ -19,15 +19,24 @@ const FormularioServicios = () => {
   const navigate = useNavigate(); // Hook para redirigir a otra página
   const [horarioInvalido, setHorarioInvalido] = useState(false); // Estado de validación del horario
 
-
   const [formData, setFormData] = useState({
     servicio: [],
     dia: '',
     horario: '',
+
+
   });
 
 
+
+
+
+
+
   useEffect(() => {
+
+
+
     const serviciosGuardados = localStorage.getItem('serviciosSeleccionados');
     if (serviciosGuardados) {
       try {
@@ -48,6 +57,8 @@ const FormularioServicios = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+  
+
 
     const form = event.currentTarget;
 
@@ -84,6 +95,7 @@ const FormularioServicios = () => {
         console.error('Error al agendar el turno:', error);
       }
     }
+    
 
     setValidated(true);
 
@@ -227,6 +239,9 @@ const FormularioServicios = () => {
 };
 
 export default FormularioServicios;
+
+
+
 
 
 
