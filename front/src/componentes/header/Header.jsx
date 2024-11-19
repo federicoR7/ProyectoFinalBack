@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -16,7 +15,13 @@ import { useAuth } from "../api/AuthContext";
 
 
 const Header=() =>{
-  const { logout } = useAuth();
+
+  const { logout, isAuthenticated } = useAuth(); // Supongo que 'user' viene de 'useAuth' y es null si no está logueado
+  const { seleccionarServicio } = useServicio();
+
+    // Recupera el username desde localStorage
+    const username = localStorage.getItem('username');
+  
 
   const handleLogout = () => {
     logout(); 
@@ -24,9 +29,6 @@ const Header=() =>{
   };
 
 
-
-
-  const { seleccionarServicio } = useServicio()
 
   return (
     <Navbar expand="lg" className="navbar">
@@ -61,10 +63,24 @@ const Header=() =>{
             <Nav.Link className='opciones' ><Link to="/Contacto" className='nosotros'> Contacto</Link> </Nav.Link>
             <Nav.Link className='opciones' ><Link to="/ListaTurnos" className='nosotros'> Mis Turnos</Link> </Nav.Link>
             <Nav.Link className='opciones' ><Link to="/Register" className='nosotros'>Registrarse</Link> </Nav.Link>
-            <Nav.Link className='opciones' ><Link to="/Login" className='nosotros'>Iniciar Sesion</Link> </Nav.Link>
-            <Nav.Link className='opciones'><button onClick={handleLogout}>Cerrar sesion</button></Nav.Link>
+            {/* <Nav.Link className='opciones' ><Link to="/Login" className='nosotros'>Iniciar Sesion</Link> </Nav.Link>
+            <Nav.Link className='opciones'><button onClick={handleLogout}>Cerrar sesion</button></Nav.Link> */}
  
+            {/* Botón dinámico de inicio/cierre de sesión */}
+            {isAuthenticated ? (
+              <Button variant="secondary" onClick={handleLogout}>Cerrar Sesión</Button>
+            ) : (
+              <Nav.Link><Link to="/Login">Iniciar Sesión</Link></Nav.Link>
+            )}
 
+
+
+            {/* Mostrar nombre de usuario si está autenticado */}
+            {isAuthenticated && (
+              <Nav.Link className="username-display">
+                Bienvenido, <strong>{username}</strong>
+              </Nav.Link>
+            )}
           </Nav>
 
 

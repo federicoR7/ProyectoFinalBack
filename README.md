@@ -94,4 +94,4 @@ En esta app se utiliza:
 - agregar indicador de nombre de usuraio para hacer saber al usuario que esta conectado 
 
 
-
+  
