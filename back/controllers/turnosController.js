@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Turno = require('../models/TurnosModel');
 
+
+
 // Obtener todos los turnos
 exports.getTurnos = async (req, res) => {
   const username = req.query.username;
@@ -11,8 +13,8 @@ exports.getTurnos = async (req, res) => {
   try {
     // const turnos = await Turno.find();
 
-        // Filtrar los turnos por el username del usuario logueado
-        const turnos = await Turno.find({ username });
+    // Filtrar los turnos por el username del usuario logueado
+    const turnos = await Turno.find({ username });
     res.json(turnos);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -33,7 +35,7 @@ exports.getTurnoById = async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
-}; 
+};
 
 
 // Crear un nuevo turno
@@ -94,3 +96,8 @@ exports.deleteTurno = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+
+
+
+
