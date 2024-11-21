@@ -19,6 +19,7 @@ import { AuthProvider } from './componentes/api/AuthContext';
 import ProtectedRoute from './componentes/api/ProtectedRoute';
 import DetalleTurno from './componentes/listaTurnos/DetalleTurno';
 import EditarTurno from './componentes/listaTurnos/editarTurno';
+import ReservaHecha from './componentes/reservaHecha/reservaHecha';
 
 
 
@@ -53,7 +54,7 @@ localStorage.removeItem('username'); // Limpia cualquier usuario guardado al ini
             <Route path="/Reservas" element={<ProtectedRoute children={<FormularioServicios />} />} />
             <Route path="/DetalleTurno/:id" element={<ProtectedRoute children={<DetalleTurno />} />} />
             <Route path="/EditarTurno/:id" element={<ProtectedRoute children={<EditarTurno />} />} />
-           
+            <Route path="/ReservaHecha" element={<ReservaHecha />} />
 
 
 

@@ -87,10 +87,11 @@ const FormularioServicios = () => {
         };
 
         await axios.post('http://localhost:5000/api/turnos', nuevoTurno);
-        setMensaje('El turno se agendó correctamente. Gracias por confiar en nosotros!');
+       
         setReservaHecha(true);
         console.log('Formulario enviado:', nuevoTurno);
-        navigate('/turnos');
+         navigate('/ReservaHecha', { state: nuevoTurno });
+         
       } catch (error) {
         console.error('Error al agendar el turno:', error);
       }
@@ -216,18 +217,18 @@ const FormularioServicios = () => {
         </Form.Group>
         <div className='cajaBotonAgendar'>
           {/* {<Button variant="secondary" size="lg" type="submit">Reservar!</Button>} */}
-          {!reservaHecha ? (
+          {/* {!reservaHecha ? ( */}
             <Button className='botonAgendar' variant="secondary" size="lg" type="submit" disabled={reservaHecha}>
               Reservar!
             </Button>
-          ) : (
+          {/* ) : (
             <Button className='botonAgendar' variant="secondary" size="lg" onClick={handleVolverInicio}>
               Volver al Inicio
             </Button>
-          )}
+          )} */}
         </div>
 
-        {mensaje && (
+         {mensaje && (
           <Alert variant="success" className="mt-4">
             {mensaje}
           </Alert>
