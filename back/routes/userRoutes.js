@@ -17,7 +17,7 @@ router.post("/register", async (req, res) => {
     const newUser = new User({ username, password: hashedPassword, nombre, apellido, email, celular });
 
     await newUser.save();
-    //console.log("Usuario registrado: ", newUser);
+    console.log("Usuario registrado: ", newUser);
     res.status(201).send("Usuario registardo con éxito");
   } catch (err) {
     console.error("Error al registrar el usuario: ", err);
@@ -41,7 +41,6 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.user = user._id; // Almacena el nombre de usuario en la sesión
-    // res.send(`Usuario ${user.username} ha iniciado sesión.`);
     console.log(`Usuario ${user.username} ha iniciado sesión.`);
     res.status(200).send({ 
       message: "Login successful", 

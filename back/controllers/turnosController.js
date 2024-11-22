@@ -1,12 +1,9 @@
 const mongoose = require('mongoose');
 const Turno = require('../models/TurnosModel');
-
-const User = require('../models/User'); // Modelo de usuarios
-const nodemailer = require('nodemailer'); // Asegúrate de que esté instalado: npm install nodemailer
+const User = require('../models/User'); 
+const nodemailer = require('nodemailer'); 
 const dotenv = require('dotenv');
 dotenv.config();
-
-
 
 // Obtener todos los turnos
 exports.getTurnos = async (req, res) => {
@@ -16,8 +13,6 @@ exports.getTurnos = async (req, res) => {
   }
 
   try {
-    // const turnos = await Turno.find();
-
     // Filtrar los turnos por el username del usuario logueado
     const turnos = await Turno.find({ username });
     res.json(turnos);
@@ -43,116 +38,7 @@ exports.getTurnoById = async (req, res) => {
 };
 
 
-// Crear un nuevo turno
-// exports.createTurno = async (req, res) => {
-//   console.log(req.body)
-
-//   const turno = new Turno({
-
-//     servicio: req.body.servicio,
-//     dia: req.body.dia,
-//     horario: req.body.horario,
-//     username: req.body.username,
-
-//   });
-
-//   try {
-//     const nuevoTurno = await turno.save();
-//     res.status(201).json(nuevoTurno);
-
-    
-
-
-//   } catch (err) {
-//     res.status(400).json({ message: err.message });
-//   }
-
-
-// };
-
-// exports.createTurno = async (req, res) => {
-//   console.log(req.body);
-
-//   const turno = new Turno({
-//     servicio: req.body.servicio,
-//     dia: req.body.dia,
-//     horario: req.body.horario,
-//     username: req.body.username,
-    
-//   });
-
-//   try {
-//     // Guardar el turno en la base de datos
-//     const nuevoTurno = await turno.save();
-
-//         // Responder inmediatamente al cliente
-//         res.status(201).json(nuevoTurno);
-
-//     // Buscar el email del usuario
-//     const user = await User.findOne({ username: req.body.username });
-//     if (!user) {
-//       return res.status(404).json({ message: 'Usuario no encontrado' });
-//     }
-//     const emailUsuario = user.email;
-
-//     // Configurar el transportador de Nodemailer para Gmail
-//     const transporter = nodemailer.createTransport({
-//       host: 'smtp.gmail.com',
-//       port: 587,
-//       auth: {
-//         user: process.env.EMAIL,  
-//         pass: process.env.PASSWORD,    // Contraseña de aplicación de Gmail
-//       },
-//     });
-
-//     // Contenidos de los correos
-//     const asuntoUsuario = 'Confirmación de reserva';
-//     const mensajeUsuario = `
-//       <h1>Gracias por tu reserva</h1>
-//       <p>Detalles de tu reserva:</p>
-//       <ul>
-//         <li>Servicio: ${req.body.servicio}</li>
-//         <li>Día: ${req.body.dia}</li>
-//         <li>Horario: ${req.body.horario}</li>
-//       </ul>
-//     `;
-
-//     const asuntoLocal = 'Nueva reserva realizada';
-//     const mensajeLocal = `
-//       <h1>Nueva reserva</h1>
-//       <p>Detalles de la reserva:</p>
-//       <ul>
-//         <li>Usuario: ${req.body.username}</li>
-//         <li>Servicio: ${req.body.servicio}</li>
-//         <li>Día: ${req.body.dia}</li>
-//         <li>Horario: ${req.body.horario}</li>
-//       </ul>
-//     `;
-
-//     // Enviar correo al usuario
-//     await transporter.sendMail({
-//       from: `VeryNails <${process.env.EMAIL}>`, // Reemplaza con tu correo
-//       to: emailUsuario, // Correo del usuario
-//       subject: asuntoUsuario,
-//       html: mensajeUsuario,
-//     });
-
-//     // Enviar correo al local
-//     await transporter.sendMail({
-//       from: `Tu Negocio <${process.env.EMAIL}>`, // Reemplaza con tu correo
-//       to: process.env.EMAIL, // Correo del local
-//       subject: asuntoLocal,
-//       html: mensajeLocal,
-//     });
-
-//     console.log('Correos enviados con éxito');
-//     res.status(201).json(nuevoTurno); // Respuesta exitosa
-//   } catch (err) {
-//     console.error('Error al crear turno o enviar correos:', err);
-//     res.status(500).json({ message: 'Error al crear turno o enviar correos' });
-//   }
-// };
-
+//crear un nuevo tunro
 exports.createTurno = async (req, res) => {
   console.log(req.body);
 
@@ -166,8 +52,6 @@ exports.createTurno = async (req, res) => {
   try {
     // Guardar el turno en la base de datos
     const nuevoTurno = await turno.save();
-
-    // Responder inmediatamente al cliente
     res.status(201).json(nuevoTurno);
 
     // Buscar el email del usuario
@@ -178,7 +62,7 @@ exports.createTurno = async (req, res) => {
     }
     const emailUsuario = user.email;
 
-    // Configurar Nodemailer
+    //Nodemailer
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 587,
@@ -212,7 +96,6 @@ exports.createTurno = async (req, res) => {
       </ul>
     `;
 
-    // Enviar correos de forma asincrónica
     await transporter.sendMail({
       from: `VeryNails <${process.env.EMAIL}>`,
       to: emailUsuario,
@@ -229,13 +112,9 @@ exports.createTurno = async (req, res) => {
 
     console.log('Correos enviados con éxito');
   } catch (err) {
-    // Manejar errores después de responder
     console.error('Error al crear turno o enviar correos:', err);
   }
 };
-
-
-
 
 // Actualizar un turno por ID
 exports.updateTurno = async (req, res) => {

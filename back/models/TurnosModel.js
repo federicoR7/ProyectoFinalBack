@@ -8,7 +8,7 @@ const turnoSchema = new mongoose.Schema({
 
 });
 
- module.exports = mongoose.model('Turno', turnoSchema);
+module.exports = mongoose.model('Turno', turnoSchema);
 
 
 
