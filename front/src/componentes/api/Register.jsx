@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from './api';
+import { Navigate } from 'react-router-dom';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -14,6 +15,7 @@ const Register = () => {
     try {
       await api.post('/users/register', { username, password, nombre, apellido, email, celular });
       alert('Usuario registrado con éxito');
+      Navigate('/');
     } catch (error) {
       alert('Error al registrar: ' + error.response.data);
     }
