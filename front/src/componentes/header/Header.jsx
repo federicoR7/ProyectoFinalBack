@@ -16,7 +16,7 @@ import { useAuth } from "../api/AuthContext";
 
 const Header=() =>{
 
-  const { logout, isAuthenticated } = useAuth(); // Supongo que 'user' viene de 'useAuth' y es null si no está logueado
+  const { logout, isAuthenticated } = useAuth(); 
   const { seleccionarServicio } = useServicio();
 
     // Recupera el username desde localStorage
@@ -63,8 +63,7 @@ const Header=() =>{
             <Nav.Link className='opciones' ><Link to="/Contacto" className='nosotros'> Contacto</Link> </Nav.Link>
             <Nav.Link className='opciones' ><Link to="/ListaTurnos" className='nosotros'> Mis Turnos</Link> </Nav.Link>
             <Nav.Link className='opciones' ><Link to="/Register" className='nosotros'>Registrarse</Link> </Nav.Link>
-            {/* <Nav.Link className='opciones' ><Link to="/Login" className='nosotros'>Iniciar Sesion</Link> </Nav.Link>
-            <Nav.Link className='opciones'><button onClick={handleLogout}>Cerrar sesion</button></Nav.Link> */}
+
  
             {/* Botón dinámico de inicio/cierre de sesión */}
             {isAuthenticated ? (

@@ -15,7 +15,7 @@ const DetalleTurno = () => {
   useEffect(() => {
     const fetchTurno = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/turnos/${id}`);
+        const response = await fetch(`https://proyectofinalback-cvd9.onrender.com/api/turnos/${id}`);
         const data = await response.json();
         setTurno(data);
       } catch (error) {
@@ -28,7 +28,7 @@ const DetalleTurno = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/turnos/${id}`, {
+      const response = await fetch(`https://proyectofinalback-cvd9.onrender.com/api/turnos/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {
@@ -47,16 +47,7 @@ const DetalleTurno = () => {
   if (!turno) return <p>Cargando...</p>;
 
   return (
-    // <div className="detalle-turno">
-    //   <h2>{turno.servicio}</h2>
-    //   <p>Día: {turno.dia}</p>
-    //   <p>Horario: {turno.horario}</p>
 
-    //   <div className="acciones">
-    //     <Link to={`/EditarTurno/${turno._id}`} className="editar">Editar</Link>
-    //     <button onClick={handleDelete} className="eliminar">Eliminar</button>
-    //   </div>
-    // </div>
     <div className="detalle-turno">
       <h2>{turno.servicio}</h2>
       <p>Día: {turno.dia}</p>
@@ -67,7 +58,7 @@ const DetalleTurno = () => {
         <button onClick={handleModalOpen} className="eliminar">Eliminar</button>
       </div>
 
-      {/* Modal de confirmación */}
+      {/* confirmación */}
       <Modal show={showModal} onHide={handleModalClose} centered>
         <Modal.Header closeButton>
           <Modal.Title>Confirmar eliminación</Modal.Title>

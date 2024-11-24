@@ -9,13 +9,11 @@ import Carrousel from './componentes/carrousel/Carrousel';
 import FormularioServicios from './componentes/formularioReservas/FormularioReservas';
 import Nosotros from './componentes/nosotros/Nosotros';
 import Contacto from './componentes/contacto/Contacto';
-import React, { useRef, useEffect } from 'react';
 import ServicioSelector from './componentes/section/Section';
 import ListaTurnos from './componentes/listaTurnos/listaTurnos';
 import Register from './componentes/api/Register';
 import Login from './componentes/api/Login';
 import { AuthProvider } from './componentes/api/AuthContext';
-// import Protegida from './componentes/protegida/Protegida';
 import ProtectedRoute from './componentes/api/ProtectedRoute';
 import DetalleTurno from './componentes/listaTurnos/DetalleTurno';
 import EditarTurno from './componentes/listaTurnos/editarTurno';
@@ -28,45 +26,42 @@ import ReservaHecha from './componentes/reservaHecha/reservaHecha';
 function App() {
 
 
-localStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar la aplicación
+  localStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar la aplicación
 
 
   return (
     <AuthProvider>
-    <Router>
-      <section className='body'>
-        <Header />
-        <Carrousel /> 
-        <main className='main'  >
-        
-                
-          <Routes basename="/proyectoReact">
-          
-          <Route path="/servicio/:tipo" element={<ServicioSelector />} />
-          
-           <Route  path="/" element={<ServicioSelector />} />
-
-            <Route path='/Nosotros' element={<Nosotros />} />
-            <Route path='/Contacto' element={<Contacto />} />
-            <Route path='/ListaTurnos' element={<ProtectedRoute children={<ListaTurnos />} />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-            <Route path="/Reservas" element={<ProtectedRoute children={<FormularioServicios />} />} />
-            <Route path="/DetalleTurno/:id" element={<ProtectedRoute children={<DetalleTurno />} />} />
-            <Route path="/EditarTurno/:id" element={<ProtectedRoute children={<EditarTurno />} />} />
-            <Route path="/ReservaHecha" element={<ReservaHecha />} />
+      <Router>
+        <section className='body'>
+          <Header />
+          <Carrousel />
+          <main className='main'  >
 
 
+            <Routes basename="/proyectoReact">
 
-          </Routes>   
-          <div className='cajaHorarioMapa'>     
-        <GoogleMaps />
-        <Horarios />
-        </div> 
-        </main>
-        <Footer />
-      </section>
-    </Router>
+              <Route path="/servicio/:tipo" element={<ServicioSelector />} />
+
+              <Route path="/" element={<ServicioSelector />} />
+              <Route path='/Nosotros' element={<Nosotros />} />
+              <Route path='/Contacto' element={<Contacto />} />
+              <Route path='/ListaTurnos' element={<ProtectedRoute children={<ListaTurnos />} />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+              <Route path="/Reservas" element={<ProtectedRoute children={<FormularioServicios />} />} />
+              <Route path="/DetalleTurno/:id" element={<ProtectedRoute children={<DetalleTurno />} />} />
+              <Route path="/EditarTurno/:id" element={<ProtectedRoute children={<EditarTurno />} />} />
+              <Route path="/ReservaHecha" element={<ReservaHecha />} />
+
+            </Routes>
+            <div className='cajaHorarioMapa'>
+              <GoogleMaps />
+              <Horarios />
+            </div>
+          </main>
+          <Footer />
+        </section>
+      </Router>
     </AuthProvider>
   )
 }

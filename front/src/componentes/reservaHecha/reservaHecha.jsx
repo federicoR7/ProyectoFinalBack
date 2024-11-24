@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 const ReservaHecha = () => {
-  const location = useLocation(); // Obtenemos el estado pasado a través de la redirección
-  const navigate = useNavigate(); // Para redirigir al usuario
+  const location = useLocation(); 
+  const navigate = useNavigate(); 
 
-  const { servicio, dia, horario } = location.state || {}; // Recogemos los datos de la reserva
+  const { servicio, dia, horario } = location.state || {}; 
 
   return (
     <section className="graciasReserva">

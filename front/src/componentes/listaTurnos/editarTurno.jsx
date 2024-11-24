@@ -14,8 +14,8 @@ import Alert from 'react-bootstrap/Alert';
 
 
 const EditarTurno = () => {
-    const { id } = useParams(); // Obtén el ID del turno de la URL
-    const navigate = useNavigate(); // Para redirigir después de guardar cambios
+    const { id } = useParams(); // ID del turno de la URL
+    const navigate = useNavigate(); 
     const [formData, setFormData] = useState({
         servicio: [],
         dia: "",
@@ -27,7 +27,7 @@ const EditarTurno = () => {
     useEffect(() => {
         const fetchTurno = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/turnos/${id}`);
+                const response = await axios.get(`https://proyectofinalback-cvd9.onrender.com/api/turnos/${id}`);
                 setFormData({
                     servicio: response.data.servicio || [],
                     dia: response.data.dia || "",
@@ -47,17 +47,17 @@ const EditarTurno = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // Maneja la selección del horario
+    // Manejar la selección del horario
     const handleSelectHorario = (horario) => {
         setFormData({ ...formData, horario });
         setHorarioSeleccionado(horario);
     };
 
-    // Maneja el envío del formulario para guardar cambios
+    // Manejar el envío del formulario para guardar cambios
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/turnos/${id}`, formData);
+            await axios.put(`https://proyectofinalback-cvd9.onrender.com/api/turnos/${id}`, formData);
             console.log("Turno actualizado:", formData);
             navigate("/ListaTurnos"); // Redirige a la lista de turnos
         } catch (error) {

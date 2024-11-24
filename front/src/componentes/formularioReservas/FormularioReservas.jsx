@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+
 import Row from 'react-bootstrap/Row';
 import "./FormularioReservas.css";
 import axios from 'axios';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Alert from 'react-bootstrap/Alert';
-import { useNavigate } from 'react-router-dom'; // Para redirigir al inicio
+import { useNavigate } from 'react-router-dom'; 
 
 const FormularioServicios = () => {
   const [serviciosSeleccionados, setServiciosSeleccionados] = useState([]);
@@ -27,15 +27,7 @@ const FormularioServicios = () => {
 
   });
 
-
-
-
-
-
-
   useEffect(() => {
-
-
 
     const serviciosGuardados = localStorage.getItem('serviciosSeleccionados');
     if (serviciosGuardados) {
@@ -76,7 +68,7 @@ const FormularioServicios = () => {
       event.stopPropagation();
     } else {
       try {
-        const nombreUsuario = localStorage.getItem('username'); // Si está almacenado como objeto
+        const nombreUsuario = localStorage.getItem('username'); 
         console.log('Nombre de usuario:', nombreUsuario);
 
         const nuevoTurno = {
@@ -86,7 +78,7 @@ const FormularioServicios = () => {
           username: nombreUsuario,
         };
 
-        await axios.post('http://localhost:5000/api/turnos', nuevoTurno);
+        await axios.post('https://proyectofinalback-cvd9.onrender.com/api/turnos', nuevoTurno);
        
         setReservaHecha(true);
         console.log('Formulario enviado:', nuevoTurno);
@@ -108,10 +100,6 @@ const FormularioServicios = () => {
   };
 
 
-
-
-
-
   const handleSelect = (eventKey) => {
     setHorarioSeleccionado(eventKey);
     setFormData({ ...formData, horario: eventKey });
@@ -125,8 +113,6 @@ const FormularioServicios = () => {
     });
   };
 
-
-
   useEffect(() => {
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -135,18 +121,14 @@ const FormularioServicios = () => {
   }, [serviciosSeleccionados]);
 
 
-
-
-  // // Asegúrate de que los servicios seleccionados se guarden en formData
+  // servicios seleccionados se guardan en formData
   useEffect(() => {
     setFormData({ ...formData, servicios: serviciosSeleccionados });
   }, [serviciosSeleccionados]);
 
   const handleVolverInicio = () => {
-    navigate('/'); // Redirige al inicio
+    navigate('/'); 
   };
-
-
 
   return (
     <section className='formulario'>
@@ -193,10 +175,6 @@ const FormularioServicios = () => {
 
         </Row>
 
-
-
-
-
         <Form.Group as={Col} md="6" controlId="formServicios" className='cajaInferior'
 
         >
@@ -216,16 +194,11 @@ const FormularioServicios = () => {
 
         </Form.Group>
         <div className='cajaBotonAgendar'>
-          {/* {<Button variant="secondary" size="lg" type="submit">Reservar!</Button>} */}
-          {/* {!reservaHecha ? ( */}
+
             <Button className='botonAgendar' variant="secondary" size="lg" type="submit" disabled={reservaHecha}>
               Reservar!
             </Button>
-          {/* ) : (
-            <Button className='botonAgendar' variant="secondary" size="lg" onClick={handleVolverInicio}>
-              Volver al Inicio
-            </Button>
-          )} */}
+
         </div>
 
          {mensaje && (
