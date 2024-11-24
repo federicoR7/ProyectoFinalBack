@@ -10,12 +10,15 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [celular, setCelular] = useState('');
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await api.post('/users/register', { username, password, nombre, apellido, email, celular });
       alert('Usuario registrado con éxito');
-      Navigate('/');
+      navigate('/');
+      
     } catch (error) {
       alert('Error al registrar: ' + error.response.data);
     }
