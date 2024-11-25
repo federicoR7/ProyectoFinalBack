@@ -30,17 +30,22 @@
 
 }
 
-/* .accordion-button {
+.accordion-button {
+    background: linear-gradient(90deg, rgb(233, 223, 225)60%, white);
+    font-size: large;
 
 
-
-} */
+}
 
 .botonAcordeon {
     margin-bottom: 1.5rem;
-       background: linear-gradient(90deg, rgb(233, 223, 225)60%, white);
-    font-size: large;
+   
 }
+
+.colorCajaSelectora{
+    background: linear-gradient(90deg, rgb(233, 223, 225)60%, white);
+}
+
 
 .contenedorCartas {
     display: flex;
