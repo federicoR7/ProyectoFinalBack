@@ -173,7 +173,7 @@ const ServicioSelector = () => {
 
 
                 <Accordion.Item eventKey="0" className="botonAcordeon" >
-                    <Accordion.Header id="peluqueria">Peluquería</Accordion.Header>
+                    <Accordion.Header id="peluqueria" className="botonAcordeon">Peluquería</Accordion.Header>
 
                     <Accordion.Body className="contenedorCartas" >
                         <Card >
