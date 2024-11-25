@@ -4,14 +4,12 @@
   padding-bottom: 2.5rem;
   font-size: large;
   
-
 }
 
 @media(max-width: 600px){
 
   .cajaHorarioMapa{
     margin-top: 3rem;
-    
 
   }
  

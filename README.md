@@ -93,5 +93,10 @@ En esta app se utiliza:
 - agregar boton de logeo/deslogeo
 - agregar indicador de nombre de usuraio para hacer saber al usuario que esta conectado 
 
+//actualizacion 25/11/2014
+- se logro hacer deploy en render, se incorporo envio de mails, boton de loeo y deslogeo e indicar de usuario activo.
+
+-falta solucionar problemas con estilos y bootstrap en el deploy
+
 
   
