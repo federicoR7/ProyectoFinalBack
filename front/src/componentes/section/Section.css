@@ -31,7 +31,7 @@
 }
 
 .accordion-button {
-    background: linear-gradient(90deg, rgb(233, 223, 225)60%, white) !important;
+    background: linear-gradient(90deg, rgb(233, 223, 225)60%, white) ;
     font-size: large;
 
 
@@ -39,7 +39,12 @@
 
 .botonAcordeon {
     margin-bottom: 1.5rem;
+
    
+}
+
+.pruebaBotonSelector{
+    background: linear-gradient(90deg, rgb(128, 93, 100)60%, white) !important;
 }
 
 
