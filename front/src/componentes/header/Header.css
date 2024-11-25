@@ -14,3 +14,9 @@
 .opciones{
     margin-left: 3rem;
 }
+
+
+.cajaDeUsuario{
+    display: flex;
+
+}

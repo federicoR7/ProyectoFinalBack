@@ -38,7 +38,7 @@ const Header=() =>{
         <Navbar.Collapse id="navbarScroll">
 
           <Nav
-            className="me-auto my-2 my-lg-0"
+            className="my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
             navbarScroll>
                 
@@ -57,31 +57,29 @@ const Header=() =>{
                 <NavDropdown.Item as={Link} to="/servicio/depilacion" onClick={() => seleccionarServicio('depilacion')}>Depilación</NavDropdown.Item>
               </div>
             </NavDropdown>
-            
-
             <Nav.Link className='opciones'><Link to="/Nosotros" className='nosotros'> Nosotros</Link></Nav.Link>
             <Nav.Link className='opciones' ><Link to="/Contacto" className='nosotros'> Contacto</Link> </Nav.Link>
-            <Nav.Link className='opciones' ><Link to="/ListaTurnos" className='nosotros'> Mis Turnos</Link> </Nav.Link>
-            <Nav.Link className='opciones' ><Link to="/Register" className='nosotros'>Registrarse</Link> </Nav.Link>
 
- 
+
+
+
+          </Nav>
+          <div className='cajaDeUsuario'>
+            <Nav.Link className='opciones' ><Link to="/ListaTurnos" className='nosotros'> Mis Turnos </Link> </Nav.Link>
+            <Nav.Link className='opciones' ><Link to="/Register" className='nosotros'>Registrarse </Link> </Nav.Link>
             {/* Botón dinámico de inicio/cierre de sesión */}
             {isAuthenticated ? (
               <Button variant="secondary" onClick={handleLogout}>Cerrar Sesión</Button>
             ) : (
               <Nav.Link><Link to="/Login">Iniciar Sesión</Link></Nav.Link>
             )}
-
-
-
             {/* Mostrar nombre de usuario si está autenticado */}
             {isAuthenticated && (
               <Nav.Link className="username-display">
                 Bienvenido, <strong>{username}</strong>
               </Nav.Link>
             )}
-          </Nav>
-
+          </div>
 
         </Navbar.Collapse>
         
