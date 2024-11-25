@@ -31,7 +31,7 @@
 }
 
 .accordion-button {
-    background-color: linear-gradient(90deg, rgb(233, 223, 225)60%, white);
+    background: linear-gradient(90deg, rgb(233, 223, 225)60%, white);
     font-size: large;
 
 

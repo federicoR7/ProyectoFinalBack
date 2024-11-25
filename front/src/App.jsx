@@ -18,6 +18,7 @@ import ProtectedRoute from './componentes/api/ProtectedRoute';
 import DetalleTurno from './componentes/listaTurnos/DetalleTurno';
 import EditarTurno from './componentes/listaTurnos/editarTurno';
 import ReservaHecha from './componentes/reservaHecha/reservaHecha';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
