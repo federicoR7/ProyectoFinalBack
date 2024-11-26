@@ -126,24 +126,18 @@ const FormularioServicios = () => {
     setFormData({ ...formData, servicios: serviciosSeleccionados });
   }, [serviciosSeleccionados]);
 
-  const handleVolverInicio = () => {
-    navigate('/'); 
-  };
 
   return (
     <section className='formulario'>
 
 
       <Form onSubmit={handleSubmit} className='form' noValidate validated={validated}>
-        <h3 className='tituloFormulario'>Estas a un paso de reservar con nosotros!</h3>
+        <p className="display-6 fs-3 mb-3 ms-3 me-3 mt-3 tituloFormulario">estás a un paso de agendar con nosotros!</p>
 
         <Row className="mb-3 lineaDatos1">
-          <div className='cajaInputs'>
-
-          </div>
           <Row className="mb-3 cajaHorarios">
 
-            <Form.Group as={Col} md="3" controlId="fomrDia" className='calendario'>
+            <Form.Group as={Col} md="3" controlId="formDia" className='calendario'>
               <Form.Label>Día</Form.Label>
               <Form.Control
                 required
@@ -157,7 +151,7 @@ const FormularioServicios = () => {
               />
             </Form.Group>
 
-            <Form.Group as={Col} md="3" controlId="formHorario" className='calendario'>
+            <Form.Group as={Col} md="3" controlId="formHorario" className='calendario mt-3'>
               <Form.Label>Horario</Form.Label>
               <Dropdown onSelect={handleSelect} id="horario">
                 <Dropdown.Toggle variant={horarioInvalido ? 'danger' : 'secondary'} id="dropdown-basic" size='lg'>
@@ -175,27 +169,25 @@ const FormularioServicios = () => {
 
         </Row>
 
-        <Form.Group as={Col} md="6" controlId="formServicios" className='cajaInferior'
-
-        >
-          <div className='subCajaInferior'>
-            <Form.Label>Servicios seleccionados:</Form.Label>
+        <Form.Group as={Col} md="6" controlId="formServicios" className='cajaInferior display-6'>
+        
+            <Form.Label className='fs-3'>Servicios seleccionados:</Form.Label>
             <ul>
               {serviciosSeleccionados.length === 0 ? (
-                <li>No hay servicios seleccionados</li>
+                <li className='fs-3'>No hay servicios seleccionados</li>
               ) : (
                 serviciosSeleccionados.map((servicio) => (
-                  <li key={servicio.id}>{servicio.nombre}</li>
+                  <li className='fs-3' key={servicio.id}>{servicio.nombre}</li>
 
                 ))
               )}
             </ul>
-          </div>
+         
 
         </Form.Group>
         <div className='cajaBotonAgendar'>
 
-            <Button className='botonAgendar' variant="secondary" size="lg" type="submit" disabled={reservaHecha}>
+            <Button className='botonAgendar mb-5' variant="secondary" size="lg" type="submit" disabled={reservaHecha}>
               Reservar!
             </Button>
 

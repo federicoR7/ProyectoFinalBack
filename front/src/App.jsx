@@ -46,10 +46,14 @@ function App() {
               <Route path="/" element={<ServicioSelector />} />
               <Route path='/Nosotros' element={<Nosotros />} />
               <Route path='/Contacto' element={<Contacto />} />
-              <Route path='/ListaTurnos' element={<ProtectedRoute children={<ListaTurnos />} />} />
+              {/* <Route path='/ListaTurnos' element={<ProtectedRoute children={<ListaTurnos />} />} /> */}
+              <Route path='/ListaTurnos' element={<ListaTurnos />} />
+
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
-              <Route path="/Reservas" element={<ProtectedRoute children={<FormularioServicios />} />} />
+              {/* <Route path="/Reservas" element={<ProtectedRoute children={<FormularioServicios />} />} /> */}
+              <Route path="/Reservas" element={<FormularioServicios />} />
+
               <Route path="/DetalleTurno/:id" element={<ProtectedRoute children={<DetalleTurno />} />} />
               <Route path="/EditarTurno/:id" element={<ProtectedRoute children={<EditarTurno />} />} />
               <Route path="/ReservaHecha" element={<ReservaHecha />} />

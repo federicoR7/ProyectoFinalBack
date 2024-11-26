@@ -63,14 +63,14 @@
     align-items: center;
     width: 95%;
     
-    background-color: #a3a5a7; 
+    background-color: #6c757d54; 
     font-size: large;
     border-radius: 5px;
 
 }
 .cajaInferior{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     width: 95%;
     margin-bottom: 1rem
 

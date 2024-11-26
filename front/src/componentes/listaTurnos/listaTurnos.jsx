@@ -25,12 +25,12 @@ const ListaTurnos = () => {
   }, []);
 
   return (
-<div>
-    <h1>Lista de Turnos</h1>
+<div className='cajaTurnosAgendados'>
+    <h1 className='display-4 m-3'>Turnos agendados</h1>
     {turnos.length === 0 ? (
-      <p>No hay turnos registrados.</p>
+      <p className='display-6 fs-3 m-2'>No hay turnos registrados.</p>
     ) : (
-      <ul>
+      <ul className='display-6 fs-3 m-2'>
         {turnos.map((turno) => (
           <li key={turno._id}>
             {turno.servicio} - {turno.dia} - {turno.horario}

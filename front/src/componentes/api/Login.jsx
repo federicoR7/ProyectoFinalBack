@@ -74,15 +74,15 @@ const Login = () => {
     // </form>
 
 
-    <Form className="fs-2 cajaForm"  onSubmit={handleSubmit}>
-      <h3 class="display-5">Iniciá sesión para poder reservar.</h3>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form className="fs-2 cajaFormLogin"  onSubmit={handleSubmit}>
+      <h5 class="display-6 mb-3 ms-3 me-3">Iniciá sesión para poder reservar.</h5>
+      <Form.Group className="mb-3 w-75" controlId="formBasicEmail">
         <Form.Label > Usuario</Form.Label>
-        <Form.Control className="fs-3" type="text" placeholder="Ingresa tu usuario" value={username} onChange={(e) => setUsername(e.target.value)} required />
+        <Form.Control className="fs-3 " type="text" placeholder="Ingresa tu usuario" value={username} onChange={(e) => setUsername(e.target.value)} required />
 
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Group className="mb-3 w-75" controlId="formBasicPassword">
         <Form.Label>Contraseña</Form.Label>
         <Form.Control className="fs-3" type="password" placeholder=" Ingresa tu contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
         <Form.Text className="text-muted">

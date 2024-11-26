@@ -1,0 +1,20 @@
+.graciasReserva{
+    background-color:#6c757d54 ;
+    border-radius:7px ;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: space-evenly;
+}
+
+.cajaTituloGracias{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botonVolverGracias{
+    display: flex;
+    justify-content: center;
+}

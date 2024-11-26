@@ -1,28 +1,33 @@
-
-
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import './reservaHecha.css'
 
 const ReservaHecha = () => {
-  const location = useLocation(); 
-  const navigate = useNavigate(); 
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const { servicio, dia, horario } = location.state || {}; 
+  const { servicio, dia, horario } = location.state || {};
 
   return (
     <section className="graciasReserva">
-      <h3>¡Gracias por agendar con nosotros!</h3>
-      <p>En breve te llegará un correo de confirmación.</p>
+      <div className='cajaTituloGracias'>
+        <h4 className='m-3 fs-2'>¡Gracias por agendar con nosotros!</h4>
+        <p className='display-6 fs-3'>En breve te llegará un correo de confirmación.</p>
+      </div>
 
-      <h4>Detalles de tu reserva:</h4>
-      <ul>
-        <li><strong>Servicio:</strong> {servicio}</li>
-        <li><strong>Día:</strong> {dia}</li>
-        <li><strong>Horario:</strong> {horario}</li>
+      <div>
+      <h4 className='display-6 fs-3'>Detalles de tu reserva:</h4>
+      <ul className='display-6 fs-3'>
+        <li>Servicio: {servicio}</li>
+        <li>Día: {dia}</li>
+        <li>Horario: {horario}</li>
       </ul>
+      </div>
 
-      <Button onClick={() => navigate('/')} variant="primary">Volver al Inicio</Button>
+      <div className='botonVolverGracias'>
+      <Button onClick={() => navigate('/')} variant="secondary fs-4">Volver al Inicio</Button>
+      </div>
     </section>
   );
 };
