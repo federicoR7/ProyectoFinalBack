@@ -22,7 +22,7 @@ const Login = () => {
 
       login(username); // Llama a login después de un inicio de sesión exitoso
 
-      localStorage.setItem('username', String(username));
+      sessionStorage.setItem('username', String(username));
 
       //Verificar si hay una ruta a la que redirigir después del inicio de sesión
 
@@ -43,37 +43,6 @@ const Login = () => {
   };
 
   return (
-
-    // <form className='formLogin' onSubmit={handleSubmit}>
-
-    //   <h3 class="display-5">Iniciá sesión para poder reservar.</h3>
-
-    //   <div className='cajaLogin'>
-    //     <div className='cajaInputLogin'>
-    //     <input
-    //       className='mt-3'
-    //       type="text"
-    //       placeholder="Nombre de usuario"
-    //       value={username}
-    //       onChange={(e) => setUsername(e.target.value)}
-    //       required
-    //     />
-    //     <input
-
-    //       className='mt-3'
-    //       type="password"
-    //       placeholder="Contraseña"
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //       required
-    //     />
-    //     </div>
-
-    //     <button className='mt-3 mb-3' type="submit">Iniciar Sesión</button>
-    //   </div>
-    // </form>
-
-
     <Form className="fs-2 cajaFormLogin"  onSubmit={handleSubmit}>
       <h5 class="display-6 mb-3 ms-3 me-3">Iniciá sesión para poder reservar.</h5>
       <Form.Group className="mb-3 w-75" controlId="formBasicEmail">
@@ -98,10 +67,6 @@ const Login = () => {
       </Button>
       </div>
     </Form>
-
-
-
-
 
   );
 };
