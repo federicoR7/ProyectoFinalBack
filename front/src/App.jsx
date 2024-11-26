@@ -27,8 +27,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
 
-  // localStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar la aplicación
-  sessionStorage.removeItem('username');
+  localStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar la aplicación
+
 
   return (
     <AuthProvider>

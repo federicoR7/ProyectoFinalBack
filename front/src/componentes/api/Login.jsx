@@ -22,7 +22,7 @@ const Login = () => {
 
       login(username); // Llama a login después de un inicio de sesión exitoso
 
-      sessionStorage.setItem('username', String(username));
+      localStorage.setItem('username', String(username));
 
       //Verificar si hay una ruta a la que redirigir después del inicio de sesión
 
