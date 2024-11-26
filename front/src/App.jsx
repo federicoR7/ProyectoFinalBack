@@ -19,6 +19,7 @@ import DetalleTurno from './componentes/listaTurnos/DetalleTurno';
 import EditarTurno from './componentes/listaTurnos/editarTurno';
 import ReservaHecha from './componentes/reservaHecha/reservaHecha';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect } from 'react';
 
 
 
@@ -27,7 +28,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
 
-  sessionStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar la aplicación
+    // Hook para limpiar sessionStorage
+    useEffect(() => {
+      sessionStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar
+      console.log("Session storage cleaned"); // Verifica que se ejecuta
+    }, []); // Solo se ejecuta una vez, al montar el componente
 
 
   return (
