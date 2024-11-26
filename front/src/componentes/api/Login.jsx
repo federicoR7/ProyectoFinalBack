@@ -77,8 +77,8 @@ const Login = () => {
     <Form className="fs-2 cajaForm"  onSubmit={handleSubmit}>
       <h3 class="display-5">Iniciá sesión para poder reservar.</h3>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label > Email</Form.Label>
-        <Form.Control className="fs-3" type="email" placeholder="Ingresa tu email" value={username} onChange={(e) => setUsername(e.target.value)} required />
+        <Form.Label > Usuario</Form.Label>
+        <Form.Control className="fs-3" type="text" placeholder="Ingresa tu usuario" value={username} onChange={(e) => setUsername(e.target.value)} required />
 
       </Form.Group>
 
