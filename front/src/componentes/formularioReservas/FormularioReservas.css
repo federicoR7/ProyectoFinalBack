@@ -48,9 +48,10 @@
 }
 
 .cajaHorarios{
-    width: 33%;
+    
     display: flex;
     flex-direction: column;
+
 }
 
 .dia{
@@ -61,11 +62,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 95%;
-    
     background-color: #6c757d54; 
     font-size: large;
-    border-radius: 5px;
+    border-radius: 7px;
+    
 
 }
 .cajaInferior{

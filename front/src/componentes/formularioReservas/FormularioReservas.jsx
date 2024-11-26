@@ -131,10 +131,10 @@ const FormularioServicios = () => {
     <section className='formulario'>
 
 
-      <Form onSubmit={handleSubmit} className='form' noValidate validated={validated}>
-        <p className="display-6 fs-3 mb-3 ms-3 me-3 mt-3 tituloFormulario">estás a un paso de agendar con nosotros!</p>
+      <Form onSubmit={handleSubmit} className='form w-50' noValidate validated={validated}>
+        <p className="display-6 fs-4 mb-3 ms-3 me-3 mt-3 tituloFormulario">estás a un paso de agendar con nosotros!</p>
 
-        <Row className="mb-3 lineaDatos1">
+        
           <Row className="mb-3 cajaHorarios">
 
             <Form.Group as={Col} md="3" controlId="formDia" className='calendario'>
@@ -167,7 +167,7 @@ const FormularioServicios = () => {
             </Form.Group>
           </Row>
 
-        </Row>
+      
 
         <Form.Group as={Col} md="6" controlId="formServicios" className='cajaInferior display-6'>
         
