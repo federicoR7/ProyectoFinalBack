@@ -27,7 +27,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
 
-  localStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar la aplicación
+  sessionStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar la aplicación
 
 
   return (
@@ -46,13 +46,12 @@ function App() {
               <Route path="/" element={<ServicioSelector />} />
               <Route path='/Nosotros' element={<Nosotros />} />
               <Route path='/Contacto' element={<Contacto />} />
-              {/* <Route path='/ListaTurnos' element={<ProtectedRoute children={<ListaTurnos />} />} /> */}
-              <Route path='/ListaTurnos' element={<ListaTurnos />} />
+              <Route path='/ListaTurnos' element={<ProtectedRoute children={<ListaTurnos />} />} />
 
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
-              {/* <Route path="/Reservas" element={<ProtectedRoute children={<FormularioServicios />} />} /> */}
-              <Route path="/Reservas" element={<FormularioServicios />} />
+              <Route path="/Reservas" element={<ProtectedRoute children={<FormularioServicios />} />} />
+             
 
               <Route path="/DetalleTurno/:id" element={<ProtectedRoute children={<DetalleTurno />} />} />
               <Route path="/EditarTurno/:id" element={<ProtectedRoute children={<EditarTurno />} />} />
