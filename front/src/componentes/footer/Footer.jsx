@@ -6,9 +6,9 @@ function Footer(){
     return(
         
         <footer className="footer">
-        <div className="mt-3">
-            <a className="nav-link"><Link to="/Nosotros">Nosotros</Link></a>
-            <a className="nav-link"><Link to="/Contacto">Contacto</Link></a>
+        <div >
+            <a className="nav-link mt-4"><Link to="/Nosotros">Nosotros</Link></a>
+            <a className="nav-link mt-3"><Link to="/Contacto">Contacto</Link></a>
         </div>
         <aside className="whatsapp">
             <a href="https://wa.me/1530288807">

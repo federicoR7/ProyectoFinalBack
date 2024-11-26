@@ -1,0 +1,14 @@
+
+/* estilos para el formulario de login */
+
+.cajaForm{
+    background-color: #6c757d54;
+    border-radius: 7px;
+    height: 345px;
+    
+}
+
+.cajaBtnLogin{
+    display: flex;
+    justify-content: center
+}

@@ -18,5 +18,9 @@
 
 .cajaDeUsuario{
     display: flex;
+}
 
+.cajaHeader{
+    display: flex;
+    justify-content: space-between;
 }

@@ -35,7 +35,7 @@ const Header=() =>{
       <Container fluid>
         <Navbar.Brand ><Link to="/"><img src={Logo} alt="" /></Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
+        <Navbar.Collapse id="navbarScroll" className='cajaHeader'>
 
           <Nav
             className="my-2 my-lg-0"
@@ -66,16 +66,16 @@ const Header=() =>{
           </Nav>
           <div className='cajaDeUsuario'>
             <Nav.Link className='opciones' ><Link to="/ListaTurnos" className='nosotros'> Mis Turnos </Link> </Nav.Link>
-            <Nav.Link className='opciones' ><Link to="/Register" className='nosotros'>Registrarse </Link> </Nav.Link>
+            <Nav.Link className='opciones' ><Link to="/Register" className='nosotros me-5'>Registrarse </Link> </Nav.Link>
             {/* Botón dinámico de inicio/cierre de sesión */}
             {isAuthenticated ? (
-              <Button variant="secondary" onClick={handleLogout}>Cerrar Sesión</Button>
+              <Button variant="secondary" className='me-5' onClick={handleLogout}>Cerrar Sesión</Button>
             ) : (
-              <Nav.Link><Link to="/Login">Iniciar Sesión</Link></Nav.Link>
+              <Nav.Link className='me-5'><Link to="/Login">Iniciar Sesión</Link></Nav.Link>
             )}
             {/* Mostrar nombre de usuario si está autenticado */}
             {isAuthenticated && (
-              <Nav.Link className="username-display">
+              <Nav.Link className="username-display me-5">
                 Bienvenido, <strong>{username}</strong>
               </Nav.Link>
             )}
