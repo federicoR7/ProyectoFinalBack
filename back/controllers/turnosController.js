@@ -6,15 +6,28 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Obtener todos los turnos
+// exports.getTurnos = async (req, res) => {
+//   const username = req.query.username;
+//   if (!username) {
+//     return res.status(400).json({ message: 'El nombre de usuario es obligatorio' });
+//   }
+
+//   try {
+//     // Filtrar los turnos por el username del usuario logueado
+//     const turnos = await Turno.find({ username });
+//     res.json(turnos);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// };
+
+//traer todos los turnos 
 exports.getTurnos = async (req, res) => {
-  const username = req.query.username;
-  if (!username) {
-    return res.status(400).json({ message: 'El nombre de usuario es obligatorio' });
-  }
+   
 
   try {
-    // Filtrar los turnos por el username del usuario logueado
-    const turnos = await Turno.find({ username });
+    // traer todos los turnos 
+    const turnos = await Turno.find();
     res.json(turnos);
   } catch (err) {
     res.status(500).json({ message: err.message });
