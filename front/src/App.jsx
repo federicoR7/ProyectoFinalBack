@@ -28,11 +28,11 @@ import React, { useEffect } from 'react';
 function App() {
 
 
-    // Hook para limpiar sessionStorage
-    useEffect(() => {
-      sessionStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar
-      console.log("Session storage cleaned"); // Verifica que se ejecuta
-    }, []); 
+    // // Hook para limpiar sessionStorage
+    // useEffect(() => {
+    //   sessionStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar
+    //   console.log("Session storage cleaned"); // Verifica que se ejecuta
+    // }, []); 
 
 
   return (
