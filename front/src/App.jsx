@@ -32,7 +32,7 @@ function App() {
     useEffect(() => {
       sessionStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar
       console.log("Session storage cleaned"); // Verifica que se ejecuta
-    }, []); // Solo se ejecuta una vez, al montar el componente
+    }, []); 
 
 
   return (
