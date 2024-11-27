@@ -1,21 +1,34 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const session = require('express-session'); 
+const session = require('express-session');
 const turnosRoutes = require('./routes/turnoRoutes');
 const userRoutes = require('./routes/userRoutes');
-require('dotenv').config(); 
+
 const app = express();
 
 // Middleware
-app.use(cors()); 
-app.use(express.json()); 
+app.use(cors());
+app.use(express.json());
+
+
 
 const path = require('path');
-app.use(express.static(path.join(__dirname, 'build')));
+
+
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
 });
+// app.use(express.static(path.join(__dirname, 'build')));
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
+
+
+
+
 
 app.use((req, res, next) => {
   res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
@@ -28,7 +41,7 @@ app.use((req, res, next) => {
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true, 
+  saveUninitialized: true,
   cookie: { secure: false }
 }));
 
