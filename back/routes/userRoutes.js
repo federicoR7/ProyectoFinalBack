@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Ruta para cerrar sesión
+// Ruta cerrar sesión
 router.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
