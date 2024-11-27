@@ -48,7 +48,7 @@ app.use('/api/turnos', turnosRoutes);
 app.use('/api/users', userRoutes);
 
 
-// Conexión a la base de datos
+// Conexión a base de datos
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Conectado a MongoDB'))
   .catch(err => console.error('Error al conectar a MongoDB:', err));
