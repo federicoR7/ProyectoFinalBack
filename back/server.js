@@ -9,14 +9,17 @@ const userRoutes = require('./routes/userRoutes');
 const app = express();
 
 // Middleware
+app.use((req, res, next) => {
+  res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+  next();
+});
 app.use(cors());
+
 app.use(express.json());
 
 
 
 const path = require('path');
-
-
 
 app.use(express.static(path.join(__dirname, 'build')));
 // app.get('*', (req, res) => {
@@ -25,12 +28,6 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 
 
-
-
-app.use((req, res, next) => {
-  res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
-  next();
-});
 
 
 

@@ -13,7 +13,7 @@ const ListaTurnos = () => {
         const username = localStorage.getItem('username'); // Obtener el username del usuario logueado
         console.log('Username obtenido:', username);
 
-        const response = await axios.get(`https://proyectofinalback-cvd9.onrender.com/api/turnos?username=${username}`);  
+        const response = await axios.get(`https://proyectofinalback-q34r.onrender.com/api/turnos?username=${username}`);  
 
         setTurnos(response.data);
       } catch (error) {
