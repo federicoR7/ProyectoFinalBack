@@ -15,7 +15,7 @@ const DetalleTurno = () => {
   useEffect(() => {
     const fetchTurno = async () => {
       try {
-        const response = await fetch(`https://proyectofinalback-cvd9.onrender.com/api/turnos/${id}`);
+        const response = await fetch(`https://proyectofinalback-q34r.onrender.com/api/turnos/${id}`);
         const data = await response.json();
         setTurno(data);
       } catch (error) {
@@ -28,7 +28,7 @@ const DetalleTurno = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`https://proyectofinalback-cvd9.onrender.com/api/turnos/${id}`, {
+      const response = await fetch(`https://proyectofinalback-q34r.onrender.com/api/turnos/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {

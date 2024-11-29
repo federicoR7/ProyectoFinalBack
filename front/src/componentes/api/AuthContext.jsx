@@ -28,6 +28,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('isAuthenticated'); // Eliminar de localStorage
+    localStorage.removeItem('username');
   };
 
   return (

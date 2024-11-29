@@ -28,8 +28,8 @@ import React, { useEffect } from 'react';
 function App() {
 
 
-       localStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar
-       console.log("Session storage cleaned"); // Verifica que se ejecuta
+      //  localStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar
+      //  console.log("Session storage cleaned"); // Verifica que se ejecuta
     
 
 

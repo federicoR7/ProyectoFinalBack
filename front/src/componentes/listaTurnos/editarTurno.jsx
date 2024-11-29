@@ -27,7 +27,7 @@ const EditarTurno = () => {
     useEffect(() => {
         const fetchTurno = async () => {
             try {
-                const response = await axios.get(`https://proyectofinalback-cvd9.onrender.com/api/turnos/${id}`);
+                const response = await axios.get(`https://proyectofinalback-q34r.onrender.com/api/turnos/${id}`);
                 setFormData({
                     servicio: response.data.servicio || [],
                     dia: response.data.dia || "",
@@ -57,7 +57,7 @@ const EditarTurno = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`https://proyectofinalback-cvd9.onrender.com/api/turnos/${id}`, formData);
+            await axios.put(`https://proyectofinalback-q34r.onrender.com/api/turnos/${id}`, formData);
             console.log("Turno actualizado:", formData);
             navigate("/ListaTurnos"); // Redirige a la lista de turnos
         } catch (error) {
