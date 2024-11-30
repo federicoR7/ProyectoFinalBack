@@ -25,7 +25,7 @@ const ListaTurnos = () => {
   }, []);
 
   return (
-<div className='cajaTurnosAgendados'>
+ <div className='cajaTurnosAgendados'>
     <h1 className='display-4 m-3'>Turnos agendados</h1>
     {turnos.length === 0 ? (
       <p className='display-6 fs-3 m-2'>No hay turnos registrados.</p>
@@ -33,15 +33,21 @@ const ListaTurnos = () => {
       <ul className='display-6 fs-3 m-2'>
         {turnos.map((turno) => (
           <li key={turno._id}>
-            {turno.servicio} - {turno.dia} - {turno.horario}
+            {turno.servicio} <br /> {turno.dia} <br /> {turno.horario}
             {' - '}
             <Link to={`/DetalleTurno/${turno._id}`}>Ver Detalle</Link>
           </li>
         ))}
       </ul>
     )}
-  </div>
+
+
+  </div> 
+  
   );
 };
 
 export default ListaTurnos;
+
+
+

@@ -2,13 +2,13 @@
     background-color: white; 
     bottom: 0;
     left: 0;
-    width: 100%;
+    
     padding: 5px;
     display: flex;
     justify-content: space-between
 }
 .whatsapp{
-    width: 25%;
+    
     border-radius: 10rem;
     text-align: end;
     padding: 1rem;    
@@ -17,8 +17,15 @@
     scale: 1.2;
 }
 .wppImg{
-    width: 17%;
+    width: 13%;
 }
+
+@media(max-width: 500px){
+    .wppImg{
+        width: 20%;
+    }
+}
+
 a:hover{
     text-decoration: underline;
 }

@@ -9,13 +9,14 @@ import Logo from '../../assets/img/logoVN.jpg'
 import { Link } from 'react-router-dom';
 import { useServicio } from '../../contexto/ServicioContext';  
 import { useAuth } from "../api/AuthContext";
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 
 const Header=() =>{
-
+  const Navigate = useNavigate();
   const { logout, isAuthenticated } = useAuth(); 
   const { seleccionarServicio } = useServicio();
 
@@ -28,18 +29,22 @@ const Header=() =>{
     alert('Sesión cerrada'); 
   };
 
+  const handleLogin = () => {
+   Navigate('/login'); 
+  };
+
 
 
   return (
-    <Navbar expand="lg" className="navbar">
+    <Navbar expand="md" className="navbar">
       <Container fluid>
         <Navbar.Brand ><Link to="/"><img src={Logo} alt="" /></Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll" className='cajaHeader'>
 
           <Nav
-            className="my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
+            className="my-2 my-lg-0 caja-header-izq"
+            style={{ maxHeight: '200px' }}
             navbarScroll>
                 
             <NavDropdown title="Servicios" id="navbarScrollingDropdown">
@@ -57,29 +62,42 @@ const Header=() =>{
                 <NavDropdown.Item as={Link} to="/servicio/depilacion" onClick={() => seleccionarServicio('depilacion')}>Depilación</NavDropdown.Item>
               </div>
             </NavDropdown>
-            <Nav.Link className='opciones'><Link to="/Nosotros" className='nosotros'> Nosotros</Link></Nav.Link>
-            <Nav.Link className='opciones' ><Link to="/Contacto" className='nosotros'> Contacto</Link> </Nav.Link>
+            <Nav.Link><Link to="/Nosotros" className='nosotros ms-3'> Nosotros</Link></Nav.Link>
+            <Nav.Link ><Link to="/Contacto" className='nosotros ms-3'> Contacto</Link> </Nav.Link>
 
 
 
 
           </Nav>
-          <div className='cajaDeUsuario'>
+
+          <Nav
+            className="my-2 my-lg-0 caja-header-izq"
+            style={{ maxHeight: '200px' }}
+            navbarScroll>
+                
             <Nav.Link className='opciones' ><Link to="/ListaTurnos" className='nosotros'> Mis Turnos </Link> </Nav.Link>
             <Nav.Link className='opciones' ><Link to="/Register" className='nosotros me-5'>Registrarse </Link> </Nav.Link>
             {/* Botón dinámico de inicio/cierre de sesión */}
             {isAuthenticated ? (
-              <Button variant="secondary" className='me-5' onClick={handleLogout}>Cerrar Sesión</Button>
+              <Button variant="secondary" className='me-5 btn-lg' onClick={handleLogout}>Cerrar Sesión</Button>
             ) : (
-              <Nav.Link className='me-5'><Link to="/Login">Iniciar Sesión</Link></Nav.Link>
+              <Button variant="secondary" className='me-5 btn-lg' onClick={handleLogin}>Iniciar Sesión</Button>
             )}
             {/* Mostrar nombre de usuario si está autenticado */}
             {isAuthenticated && (
-              <Nav.Link className="username-display me-5">
+              <p className="username-display me-5">
                 Bienvenido, <strong>{username}</strong>
-              </Nav.Link>
+              </p>
             )}
-          </div>
+
+
+
+          </Nav>
+
+
+          {/* <Nav className='cajaDeUsuario'>
+
+          </Nav> */}
 
         </Navbar.Collapse>
         

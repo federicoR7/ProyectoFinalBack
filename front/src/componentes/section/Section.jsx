@@ -133,11 +133,11 @@ const ServicioSelector = () => {
 
             <Offcanvas className="offcanvas" show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title className="offcanvasTitle">ya casi estás!</Offcanvas.Title>
+                    <Offcanvas.Title className=" display-4 ">ya casi estás!</Offcanvas.Title>
                 </Offcanvas.Header>
-                <Offcanvas.Body>
+                <Offcanvas.Body className="cajaOffCanvas">
                     <div>             
-                        <h5 className="revisar">revisa tus servicios antes de agendar:</h5>
+                        <h5 className="revisar display-6 fs-2">revisa tus servicios antes de agendar:</h5>
                         <ul>
                             {serviciosSeleccionados.map((servicio) => (
                                 <li className="listaServicios" key={servicio.id}>
@@ -146,12 +146,9 @@ const ServicioSelector = () => {
                                 </li>
 
                             ))}
-                            <Button className="botonAgendar" variant="secondary" size="lg" onClick={handleAlert}>Agendar</Button>  
-
-
-                        </ul>
-                        
+                        </ul>                    
                     </div>
+                     <Button className="botonAgendar fs-3" variant="secondary" size="lg" onClick={handleAlert}>Agendar</Button>
                 </Offcanvas.Body>
             </Offcanvas>
 

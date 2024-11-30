@@ -4,7 +4,7 @@
 .cajaFormLogin{
     background-color: #6c757d54;
     border-radius: 7px;
-    height: 345px;
+    height:fit-content;
     display: grid;
     justify-items: center;
     align-content: center;
@@ -22,5 +22,6 @@
     display: grid;
     justify-items: center;
     align-content: center;
+    height: fit-content;
 
 }

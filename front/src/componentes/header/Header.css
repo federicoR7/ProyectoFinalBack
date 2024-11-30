@@ -24,3 +24,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+.cajaOpcionesHeader{
+    display: flex;
+    width: 100%;
+}
+

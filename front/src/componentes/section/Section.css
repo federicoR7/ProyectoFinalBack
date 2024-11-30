@@ -113,7 +113,8 @@
 
 }
 .botonAgendar{
-    margin-top:2rem;
+    margin:2rem;
+    
 }
 .botonAgendar:hover{
     background-color: #198754;
@@ -123,4 +124,7 @@
     scale:1.2
 }
 
-
+.cajaOffCanvas{
+    display: flex;
+    flex-direction: column
+}

@@ -62,7 +62,7 @@ const Login = () => {
 
       </Form.Group>
       <div className='cajaBtnLogin'>
-      <Button variant="secondary fs-2" type="submit">
+      <Button variant="secondary fs-2 mb-3" type="submit">
         Ingresar
       </Button>
       </div>

@@ -3,6 +3,7 @@ import api from './api';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useAuth } from './AuthContext';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -11,6 +12,7 @@ const Register = () => {
   const [apellido, setApellido] = useState('');
   const [email, setEmail] = useState('');
   const [celular, setCelular] = useState('');
+  const { login } = useAuth();
 
   const navigate = useNavigate();
 
@@ -19,6 +21,11 @@ const Register = () => {
     try {
       await api.post('/users/register', { username, password, nombre, apellido, email, celular });
       alert('Usuario registrado con éxito');
+
+      login(username); // Llama a login después de un inicio de sesión exitoso
+
+      sessionStorage.setItem('username', String(username));
+
       navigate('/');
       
     } catch (error) {
@@ -27,54 +34,6 @@ const Register = () => {
   };
 
   return (
-    // <form onSubmit={handleSubmit}>
-    //   <h2>Registro</h2>
-    //   <input
-    //     type="text"
-    //     placeholder="Nombre de usuario"
-    //     value={username}
-    //     onChange={(e) => setUsername(e.target.value)}
-    //     required
-    //   />
-    //   <input
-    //     type="password"
-    //     placeholder="Contraseña"
-    //     value={password}
-    //     onChange={(e) => setPassword(e.target.value)}
-    //     required
-    //   />
-    //    <input
-    //     type="text"
-    //     placeholder="Nombre"
-    //     value={nombre}
-    //     onChange={(e) => setNombre(e.target.value)}
-    //     required
-    //   />
-    //     <input
-    //     type="text"
-    //     placeholder="Apellido"
-    //     value={apellido}
-    //     onChange={(e) => setApellido(e.target.value)}
-    //     required
-    //   />
-    //     <input
-    //     type="email"
-    //     placeholder="Email"
-    //     value={email}
-    //     onChange={(e) => setEmail(e.target.value)}
-    //     required
-    //   />
-    //     <input
-    //     type="number"
-    //     placeholder="Celular"
-    //     value={celular}
-    //     onChange={(e) => setCelular(e.target.value)}
-    //     required
-    //   />
-    //   <button type="submit">Registrar</button>
-    // </form>
-
-
 
     <Form className="fs-3 cajaFormRegister"  onSubmit={handleSubmit}>
       <h5 class="display-6 mb-3 ms-3 me-3">Registrate para tener full acceso a nuestra web!</h5>
@@ -121,7 +80,7 @@ const Register = () => {
       </Form.Group>
 
       <div className='cajaBtnLogin'>
-      <Button variant="secondary fs-2" type="submit">
+      <Button variant="secondary fs-2 mb-3" type="submit">
         Registrarse!
       </Button>
       </div>
