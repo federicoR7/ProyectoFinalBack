@@ -44,33 +44,46 @@ const DetalleTurno = () => {
   const handleModalClose = () => setShowModal(false);
   const handleModalOpen = () => setShowModal(true);
 
+  const handleOnClick = () => {
+    navigate(`/EditarTurno/${turno._id}`);
+  };
+
   if (!turno) return <p>Cargando...</p>;
 
   return (
 
-    <div className="detalle-turno">
-      <h2>{turno.servicio}</h2>
+    <div className="detalle-turno p-5">
+      <h3 className='mb-4 display-4'>Detalle del turno</h3>
+      <ul>
+                  {Array.isArray(turno.servicio) ? (
+                    turno.servicio.map((servicio, index) => (
+                      <li key={index}>{servicio}</li>
+                    ))
+                  ) : (
+                    <li >{turno.servicio}</li>
+                  )}
+                </ul>
       <p>Día: {turno.dia}</p>
       <p>Horario: {turno.horario}</p>
 
       <div className="acciones">
-        <Link to={`/EditarTurno/${turno._id}`} className="editar">Editar</Link>
-        <button onClick={handleModalOpen} className="eliminar">Eliminar</button>
+        <Button onClick={handleOnClick}  variant="secondary " className="editar fs-4">Editar</Button>
+        <Button onClick={handleModalOpen}  variant="danger" className="fs-4 ms-2">Eliminar</Button>
       </div>
 
       {/* confirmación */}
       <Modal show={showModal} onHide={handleModalClose} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Confirmar eliminación</Modal.Title>
+          <Modal.Title className='fs-3'>Confirmar eliminación</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className='fs-3'>
           ¿Estás seguro de que deseas eliminar esta reserva? Esta acción no se puede deshacer.
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleModalClose}>
+          <Button variant="secondary" size='lg' onClick={handleModalClose}>
             Cancelar
           </Button>
-          <Button variant="danger" onClick={() => { handleDelete(); handleModalClose(); }}>
+          <Button variant="danger" size='lg' onClick={() => { handleDelete(); handleModalClose(); }}>
             Eliminar
           </Button>
         </Modal.Footer>

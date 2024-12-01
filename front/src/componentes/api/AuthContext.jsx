@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     if (!storedUser) {
       setIsAuthenticated(false); // Inicializa como no autenticado
     } else {
-      setIsAuthenticated(true); // Solo si deseas mantener la sesión activa
+      setIsAuthenticated(true); // si deseas mantener la sesión activa
     }
   }, []);
 

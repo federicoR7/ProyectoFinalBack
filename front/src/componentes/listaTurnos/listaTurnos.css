@@ -4,5 +4,48 @@
     background-color: #6c757d54;
     display: flex;
     flex-direction: column;
+    height: fit-content;
+    
 }
+
+.cajaServicios{
+    list-style: none;
+   
+}
+
+.cajasTurnosAgendados{
+  border-bottom: rgba(0, 0, 0, 0.13) solid 1px;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
+  background-color: #6c757d54;
+  margin-bottom: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cajasTurnosAgendados:hover{
+  scale: 1.03;
+  background-color:  #b6bcc0;
+}
+
+.verDetalle{
+    color: black;
+    height: fit-content;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    
+}
+
+
+
+.detalle-turno{
+    background-color:#6c757d54 ;
+    height: fit-content;
+}
+.editar-turno{
+  background-color: #6c757d54;
+  height: fit-content;
+  padding: 2rem;
+}
+
+
 

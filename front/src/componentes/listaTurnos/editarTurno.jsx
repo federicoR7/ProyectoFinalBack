@@ -16,7 +16,6 @@ const EditarTurno = () => {
     });
     const [horarioSeleccionado, setHorarioSeleccionado] = useState("Elegir un horario");
 
-    // Carga los datos del turno desde el backend
     useEffect(() => {
         const fetchTurno = async () => {
             try {
@@ -46,25 +45,28 @@ const EditarTurno = () => {
         setHorarioSeleccionado(horario);
     };
 
-    // Manejar el envío del formulario para guardar cambios
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await axios.put(`https://proyectofinalback-q34r.onrender.com/api/turnos/${id}`, formData);
             console.log("Turno actualizado:", formData);
-            navigate("/ListaTurnos"); // Redirige a la lista de turnos
+            navigate("/ListaTurnos"); 
         } catch (error) {
             console.error("Error al actualizar el turno:", error);
         }
     };
 
+    const handleOnClick = () => {
+        navigate('/ListaTurnos'); 
+    };
+  
+
     return (
         <section className="editar-turno">
-            <h2>Editar Turno</h2>
+            <h2 className='display-4 mb-4'>Editar Turno</h2>
             <Form onSubmit={handleSubmit}>
-                {/* Mostrar los servicios seleccionados */}
                 <Form.Group>
-                    <Form.Label>Servicios Seleccionados:</Form.Label>
+                    <Form.Label className='display-6 fs-2'>Servicios reservados:</Form.Label>
                     <ul>
                         {formData.servicio.length === 0 ? (
                             <li>No hay servicios seleccionados</li>
@@ -76,8 +78,7 @@ const EditarTurno = () => {
                     </ul>
                 </Form.Group>
 
-                {/* Campo para modificar el día */}
-                <Form.Group>
+                <Form.Group className='mb-3'>
                     <Form.Label>Día:</Form.Label>
                     <Form.Control
                         type="date"
@@ -85,14 +86,15 @@ const EditarTurno = () => {
                         value={formData.dia}
                         onChange={handleChange}
                         required
+                        size='lg'
+                        className='dia'        
                     />
                 </Form.Group>
 
-                {/* Dropdown para modificar el horario */}
                 <Form.Group>
                     <Form.Label>Horario:</Form.Label>
                     <Dropdown onSelect={handleSelectHorario}>
-                        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                        <Dropdown.Toggle variant="secondary" className='mb-5' size='lg' id="dropdown-basic">
                             {horarioSeleccionado}
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
@@ -106,10 +108,10 @@ const EditarTurno = () => {
                 </Form.Group>
 
                 {/* Botones */}
-                <Button type="submit" variant="primary">
+                <Button type="submit" size='lg' variant="success">
                     Guardar Cambios
                 </Button>
-                <Button variant="secondary" onClick={() => navigate("/turnos")} className="ms-2">
+                <Button variant="secondary" size='lg' onClick={handleOnClick}  className="ms-2">
                     Cancelar
                 </Button>
             </Form>

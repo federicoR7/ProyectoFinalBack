@@ -7,32 +7,26 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import "./Header.css"
 import Logo from '../../assets/img/logoVN.jpg'
 import { Link } from 'react-router-dom';
-import { useServicio } from '../../contexto/ServicioContext';  
+import { useServicio } from '../../contexto/ServicioContext';
 import { useAuth } from "../api/AuthContext";
 import { useNavigate } from 'react-router-dom';
 
 
-
-
-
-const Header=() =>{
+const Header = () => {
   const Navigate = useNavigate();
-  const { logout, isAuthenticated } = useAuth(); 
+  const { logout, isAuthenticated } = useAuth();
   const { seleccionarServicio } = useServicio();
-
-    // Recupera el username desde localStorage
-    const username = localStorage.getItem('username');
-  
+  // Recupera el username desde localStorage
+  const username = localStorage.getItem('username');
 
   const handleLogout = () => {
-    logout(); 
-    alert('Sesión cerrada'); 
+    logout();
+    alert('Sesión cerrada');
   };
 
   const handleLogin = () => {
-   Navigate('/login'); 
+    Navigate('/login');
   };
-
 
 
   return (
@@ -46,7 +40,7 @@ const Header=() =>{
             className="my-2 my-lg-0 caja-header-izq"
             style={{ maxHeight: '200px' }}
             navbarScroll>
-                
+
             <NavDropdown title="Servicios" id="navbarScrollingDropdown">
               <div className='cajaSubMenu'>
                 <NavDropdown.Item as={Link} to="/servicio/peluqueria" onClick={() => seleccionarServicio('peluqueria')}>Peluquería</NavDropdown.Item>
@@ -74,7 +68,7 @@ const Header=() =>{
             className="my-2 my-lg-0 caja-header-izq"
             style={{ maxHeight: '200px' }}
             navbarScroll>
-                
+
             <Nav.Link className='opciones' ><Link to="/ListaTurnos" className='nosotros'> Mis Turnos </Link> </Nav.Link>
             <Nav.Link className='opciones' ><Link to="/Register" className='nosotros me-5'>Registrarse </Link> </Nav.Link>
             {/* Botón dinámico de inicio/cierre de sesión */}
@@ -90,17 +84,10 @@ const Header=() =>{
               </p>
             )}
 
-
-
           </Nav>
 
-
-          {/* <Nav className='cajaDeUsuario'>
-
-          </Nav> */}
-
         </Navbar.Collapse>
-        
+
       </Container>
     </Navbar>
   );

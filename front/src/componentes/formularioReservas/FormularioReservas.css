@@ -1,9 +1,8 @@
 
 .formulario{  
-     width: 50%;  
-
+    height: fit-content;
    display: flex;
-   justify-content: center;
+   
 }
 
 @media(max-width: 900px){
@@ -56,8 +55,10 @@
 
 .dia{
     background-color: #6c757d;
-    color: white;
+    color: white;  
+
 }
+
 .form{
     display: flex;
     flex-direction: column;
@@ -76,11 +77,9 @@
 
 }
 
-.cajaBotonAgendar{
-    display: grid;
+.cajaBotonAgendar{    
     margin-top: 1%;
-   
-    width: 33%;
+  
 
 }
 .tituloFormulario{

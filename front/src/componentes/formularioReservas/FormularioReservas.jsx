@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-
 import Row from 'react-bootstrap/Row';
 import "./FormularioReservas.css";
 import axios from 'axios';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Alert from 'react-bootstrap/Alert';
+
 import { useNavigate } from 'react-router-dom'; 
 
 const FormularioServicios = () => {
@@ -15,8 +14,8 @@ const FormularioServicios = () => {
   const [horarioSeleccionado, setHorarioSeleccionado] = useState('Elegir un horario');
   const [validated, setValidated] = useState(false);
   const [mensaje, setMensaje] = useState('');
-  const [reservaHecha, setReservaHecha] = useState(false); // Estado para manejar si la reserva fue realizada
-  const navigate = useNavigate(); // Hook para redirigir a otra página
+  const [reservaHecha, setReservaHecha] = useState(false); 
+  const navigate = useNavigate(); 
   const [horarioInvalido, setHorarioInvalido] = useState(false); // Estado de validación del horario
 
   const [formData, setFormData] = useState({
@@ -132,7 +131,7 @@ const FormularioServicios = () => {
 
 
       <Form onSubmit={handleSubmit} className='form w-50' noValidate validated={validated}>
-        <p className="display-6 fs-4 mb-3 ms-3 me-3 mt-3 tituloFormulario">estás a un paso de agendar con nosotros!</p>
+        <h2 className="display-6 mb-3 ms-3 me-3 mt-3 ">estás a un paso de agendar con nosotros!</h2>
 
         
           <Row className="mb-3 cajaHorarios">
@@ -193,11 +192,6 @@ const FormularioServicios = () => {
 
         </div>
 
-         {mensaje && (
-          <Alert variant="success" className="mt-4">
-            {mensaje}
-          </Alert>
-        )}
       </Form>
 
     </section>

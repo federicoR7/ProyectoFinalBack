@@ -66,6 +66,8 @@ const Login = () => {
         Ingresar
       </Button>
       </div>
+
+      <p className='display-6 fs-3'>No tenés una cuenta? <a href="/Register">Registrate acá!</a></p>
     </Form>
 
   );

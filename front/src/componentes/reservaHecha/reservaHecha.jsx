@@ -12,21 +12,21 @@ const ReservaHecha = () => {
   return (
     <section className="graciasReserva">
       <div className='cajaTituloGracias'>
-        <h4 className='m-3 fs-2'>¡Gracias por agendar con nosotros!</h4>
+        <h4 className=' display-4 m-3 fs-1'><strong>¡Gracias por agendar con nosotros!</strong></h4>
         <p className='display-6 fs-3'>En breve te llegará un correo de confirmación.</p>
       </div>
 
-      <div>
-      <h4 className='display-6 fs-3'>Detalles de tu reserva:</h4>
-      <ul className='display-6 fs-3'>
-        <li>Servicio: {servicio}</li>
-        <li>Día: {dia}</li>
-        <li>Horario: {horario}</li>
-      </ul>
+      <div className='ms-2'>
+        <h4 className='display-6 fs-1'>Detalles de tu reserva:</h4>
+        <ul className='display-6 fs-2'>
+          <li>Servicio: {servicio}</li>
+          <li>Día: {dia}</li>
+          <li>Horario: {horario}</li>
+        </ul>
       </div>
 
       <div className='botonVolverGracias'>
-      <Button onClick={() => navigate('/')} variant="secondary fs-4">Volver al Inicio</Button>
+        <Button onClick={() => navigate('/')} variant="secondary fs-4">Volver al Inicio</Button>
       </div>
     </section>
   );

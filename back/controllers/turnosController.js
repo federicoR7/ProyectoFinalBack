@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Turno = require('../models/TurnosModel');
-const User = require('../models/User'); 
-const nodemailer = require('nodemailer'); 
+const User = require('../models/User');
+const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -16,7 +16,7 @@ exports.getTurnos = async (req, res) => {
     // Filtrar los turnos por el username del usuario logueado
     const turnos = await Turno.find({ username });
 
-    
+
     res.json(turnos);
   } catch (err) {
     res.status(500).json({ message: err.message });

@@ -3,8 +3,7 @@ import Wpp from "../../assets/img/logowpp.png"
 import { Link } from 'react-router-dom';
 
 function Footer(){
-    return(
-        
+    return(  
         <footer className="footer">
         <div >
             <a className="nav-link mt-4"><Link to="/Nosotros">Nosotros</Link></a>
@@ -16,10 +15,7 @@ function Footer(){
                 
             </a>
         </aside>
-    </footer>
-
-        
-        
+    </footer>    
     )
 }
 

@@ -13,7 +13,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
 import Badge from 'react-bootstrap/Badge';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import{faTrash} from '@fortawesome/free-solid-svg-icons'
@@ -64,9 +63,6 @@ const ServicioSelector = () => {
         openServiceSection(tipo);
     }, [tipo]);
 
-
-
-    // Carga la lista desde localstorage cuando el componente se monta
     useEffect(() => {
         const serviciosGuardados = localStorage.getItem('serviciosSeleccionados');
         if (serviciosGuardados) {
@@ -118,12 +114,6 @@ const ServicioSelector = () => {
         return serviciosSeleccionados.some(servicio => servicio.id === id);
     };
 
-
-
-
-
-
-
     return (
 
         <section className="cajaAcordeon rounded">
@@ -152,9 +142,6 @@ const ServicioSelector = () => {
                 </Offcanvas.Body>
             </Offcanvas>
 
-
-
-
             <div className="cajaTitulo">
                 <h2>Nuestros servicios</h2>
 
@@ -163,8 +150,6 @@ const ServicioSelector = () => {
                     Ver servicios seleccionados <Badge bg="success">{count}</Badge>
                 </Button>
             </div>
-
-
 
             <Accordion activeKey={activeKey} onSelect={(key) => setActiveKey(key)} >
 

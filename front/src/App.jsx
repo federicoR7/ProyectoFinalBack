@@ -19,19 +19,13 @@ import DetalleTurno from './componentes/listaTurnos/DetalleTurno';
 import EditarTurno from './componentes/listaTurnos/editarTurno';
 import ReservaHecha from './componentes/reservaHecha/reservaHecha';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useEffect } from 'react';
+
 
 
 
 
 
 function App() {
-
-
-      //  localStorage.removeItem('username'); // Limpia cualquier usuario guardado al iniciar
-      //  console.log("Session storage cleaned"); // Verifica que se ejecuta
-    
-
 
   return (
     <AuthProvider>

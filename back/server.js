@@ -5,7 +5,6 @@ const cors = require('cors');
 const session = require('express-session');
 const turnosRoutes = require('./routes/turnoRoutes');
 const userRoutes = require('./routes/userRoutes');
-
 const app = express();
 
 // Middleware
@@ -13,23 +12,14 @@ app.use((req, res, next) => {
   res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
   next();
 });
+
 app.use(cors());
 
 app.use(express.json());
 
-
-
 const path = require('path');
 
 app.use(express.static(path.join(__dirname, 'build')));
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
-
-
-
-
-
 
 // Configuración de la sesión 
 app.use(session({
@@ -39,11 +29,9 @@ app.use(session({
   cookie: { secure: false }
 }));
 
-
 // Rutas
 app.use('/api/turnos', turnosRoutes);
 app.use('/api/users', userRoutes);
-
 
 // Conexión a base de datos
 mongoose.connect(process.env.MONGODB_URI)

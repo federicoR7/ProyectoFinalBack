@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).send('Usuario no encontrado');
     }
 
-    const match = await bcrypt.compare(password, user.password); 
+    const match = await bcrypt.compare(password, user.password);
     if (!match) {
       console.error('Contraseña incorrecta para el usuario:', username);
       return res.status(401).send('Contraseña incorrecta');
@@ -42,10 +42,11 @@ router.post('/login', async (req, res) => {
 
     req.session.user = user._id; // Almacena el nombre de usuario en la sesión
     console.log(`Usuario ${user.username} ha iniciado sesión.`);
-    res.status(200).send({ 
-      message: "Login successful", 
-      userID: user._id, 
-      username: user.username});
+    res.status(200).send({
+      message: "Login successful",
+      userID: user._id,
+      username: user.username
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send('Error en el servidor');
