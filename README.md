@@ -1,6 +1,6 @@
 # Agenda de turnos 
 
-Este proyecto es una aplicación web para poder realizar reservas web en un salón de belleza.
+Este proyecto es una aplicación web para poder realizar reservas web en un salón de belleza, donde el usuario puede registrarse, logearse, tomar un turno. También puede ver la lista de turnos y editarlos.
 En esta app se utiliza:
     -React para el frontend, también se utilizaron librerías de bootstrap para dar una mejor apariencia a la página.
     -Node.js y Express para el backend. La aplicación permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) con los turnos.
@@ -35,7 +35,22 @@ En esta app se utiliza:
 
     Asegúrate de reemplazar `mi-base-de-datos` con el nombre de tu base de datos en MongoDB.
 
-4. Inicia el servidor del backend.
+
+4. Escribir el siguiente comando para obtener una clave única para manejo de sesiones:
+
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'));"
+
+y asígnala en la siguiente línea dentro de tu archivo .env
+
+SESSION_SECRET=[clave generada]
+
+5. Este proyecto utiliza nodemailer para enviar correos con cuenta de Gmail, para tener la clave de "aplicaciones menos seguras", sigue los pasos indicados en https://nodemailer.com/usage/using-gmail/. 
+Luego, escribi las siguientes líneas dentro de .env:
+EMAIL=[correo]@gmail.com
+PASSWORD=[clave generada]
+
+
+6. Inicia el servidor del backend.
 
     npm start
 
@@ -54,8 +69,10 @@ En esta app se utiliza:
 
     npm start
 
+
+
 ## Funcionalidades
-- **Registro/LogIn**: la pagina cuenta con logeo de usuario para poder realizar la reserva con sus datos.
+- **Registro/LogIn**: la pagina cuenta con logeo y registro de usuario para poder realizar la reserva con sus datos.
 - **Listas de servicios desplegable**: ofrece una visualización simple pero eficaz de los diferentes tipos de servicios que ofrece la empresa/negocio.
 - **Agendar Turno**: Mediante un logeo previo, el usuario puede agendar un turno completando un formulario(los servicios se cargan automaticamente cuando los elije desde el abanico de servicios).
 - **Lista de Turnos**: Visualiza todos los turnos que el usuario reservó.
