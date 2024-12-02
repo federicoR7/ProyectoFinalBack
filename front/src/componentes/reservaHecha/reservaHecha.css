@@ -1,10 +1,10 @@
 .graciasReserva{
     background-color:#6c757d54 ;
     
-    height: 300px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: fit-content;
     justify-content: space-evenly;
 }
 
@@ -17,4 +17,5 @@
 .botonVolverGracias{
     display: flex;
     justify-content: center;
+    margin-bottom: 2rem;
 }

@@ -127,10 +127,10 @@ const FormularioServicios = () => {
 
 
   return (
-    <section className='formulario'>
+    
 
 
-      <Form onSubmit={handleSubmit} className='form w-50' noValidate validated={validated}>
+      <Form onSubmit={handleSubmit} className='form' noValidate validated={validated}>
         <h2 className="display-6 mb-3 ms-3 me-3 mt-3 ">estás a un paso de agendar con nosotros!</h2>
 
         
@@ -194,7 +194,7 @@ const FormularioServicios = () => {
 
       </Form>
 
-    </section>
+    
   );
 };
 

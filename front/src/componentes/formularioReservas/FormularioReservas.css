@@ -66,6 +66,8 @@
     background-color: #6c757d54; 
     font-size: large;
     border-radius: 7px;
+    height: fit-content;
+    width: fit-content;
     
 
 }
